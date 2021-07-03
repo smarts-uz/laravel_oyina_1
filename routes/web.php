@@ -19,8 +19,13 @@ Route::get('/', function () {
     return view('site.index');
 });
 
+<<<<<<< HEAD
 Route::get('/post/{slug}', function(Post $post) {
     return view('site.single-news', 'post');
+=======
+Route::get('/posts/{post:slug}', function(Post $post) {
+    return view('site.single-news', ['post' => $post]);
+>>>>>>> 3b5574fde172a1ff329db38cd88a5c9d6aa58fb1
 });
 
 Route::get('/categorynews', function () {

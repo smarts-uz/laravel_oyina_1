@@ -23,7 +23,7 @@
       {{-- Language --}}
         <ul class="lang-container">
             <li class="lang-head flex items-center">
-                O'zbekcha 
+                O'zbekcha
                 <svg class="h-5 w-5 text-white arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#46494F">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
@@ -37,7 +37,7 @@
         </ul>
         <div class="sidebar-nav-line"></div>
         {{-- Davlat ramzlari --}}
-        
+
          {{-- Bo'limlar  --}}
         <div class="nav-section">
             <ul class="flex text-lg">
@@ -91,9 +91,9 @@
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                  
+
                     <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
-                  
+
                     <div x-show="dropdownOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
                         <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700  hover:bg-green-500 hover:text-white">
                            O'zbekcha
@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="vertical_line"></div>
-                
+
                 <div>
                     <a class="flex flex-row text-lg font-normal text-white items-center" href="">
                         <svg class="enter-icon" width="22" height="28" viewBox="0 0 30 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -113,23 +113,23 @@
                             <path d="M10.0001 2H27.0001C27.5524 2 28.0001 2.44772 28.0001 3V35C28.0001 35.5523 27.5524 36 27.0001 36H10.0001" stroke="white" stroke-width="3" stroke-linejoin="round"/>
                         </svg>
                         Davlat ramzlari
-                            
+
                     </a>
                 </div>
             </div>
-        
+
         </div>
     </div>
 
     <div class="main-nav relative  w-full">
         <div class="bg-img">
-            <img src="./images/splash-2.png" alt="">
+            <img src="{{ asset('images/splash-2.png') }}" alt="">
         </div>
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="logo-container flex items-center">
-               
-                <img src="./images/logo.png" alt="">
-                
+
+                <img src="{{ asset('images/logo.png') }}" alt="">
+
                 <div class="logo-item flex-shrink-0">
                     <h1 class=" font-bold">OYINA</h1>
                     <p>ma’naviy-ma’rifiy portal</p>
@@ -145,7 +145,7 @@
                             <h1 id="gradus"></h1>
                             <sup>°C</sup>
                         </div>
-                        
+
                         <form>
                             <select onChange="myNewFunction(this);">
                                 <option value="Tashkent">Toshkent</option>
@@ -164,7 +164,7 @@
                     </div>
             </div>
         </div>
-        
+
     </div>
     <div class="end-nav relative w-full ">
         <div class="mx-auto flex justify-between container">
@@ -185,7 +185,7 @@
                     </button>
                     <input type="text" class="input-search" placeholder="Type to Search...">
                 </div>
-                
+
                 <a class="hamburber flex flex-col items-center justify-center relative ">
                     <span></span>
                     <span></span>
