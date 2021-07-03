@@ -19,7 +19,7 @@
                               <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
                           </div>
                       </div>
-                      <a class="" href="#">{{ $item->title }}</a>
+                      <a class="" href="posts/firibgarlarga-aldanib-qolmaslik-bo-yicha-yetti-tavsiya">{{ $item->title }}</a>
                   </div>
               </div>
               @if (!$loop->last)
