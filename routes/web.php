@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Admin\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('site.index');
 });
 
-Route::get('/singlenews', function () {
-    return view('site.single-news');
+Route::get('/posts/{post:slug}', function(Post $post) {
+    return view('site.single-news', ['post' => $post]);
 });
 
 Route::get('/categorynews', function () {

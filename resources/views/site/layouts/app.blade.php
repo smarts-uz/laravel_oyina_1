@@ -16,8 +16,10 @@
 
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/tailwind.output.css') }}" />
-        <link rel="stylesheet" href="./css/main.css">
-        <link rel="stylesheet" href="./css/news.css">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/news.css') }}">
+        {{--<link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/news.css">--}}
 
         <link rel="stylesheet" type="text/css" href="./css/splide.min.css">
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
@@ -27,7 +29,7 @@
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-       
+
 
 
 
@@ -55,14 +57,14 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/splide.min.js"></script>
-    <script type="text/javascript" src="./js/splide.js"></script>
-    <script type="text/javascript" src="./js/glide.min.js"></script>
-    <script type="text/javascript" src="./js/glide.js"></script>
-    <script type="text/javascript" src="./js/main.js"></script>
-    <script type="text/javascript" src="./js/clock.js"></script>
-    <script type="text/javascript" src="./js/settings.js"></script>
-    <script type="text/javascript" src="./js/top.js"></script>
+    <script type="text/javascript" src="{{ asset('js/splide.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/splide.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/glide.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/glide.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/clock.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/settings.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/top.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    
+
 </html>
