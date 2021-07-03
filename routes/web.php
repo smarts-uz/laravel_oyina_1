@@ -25,9 +25,9 @@ Route::get('/posts/{post:slug}', function(Post $post) {
 })->name('singlePost');
 
 
-Route::get('/category/{category_name}', function ($category_name) {
-    $post = Post::query()->where('category_id', '=', $category_id)->paginate(20);
+Route::get('/category/{category_id}', function ($category_id) {
     $category_name = \App\Models\Admin\Category::query()->find($category_id);
+    $post = Post::query()->where('category_id', '=', $category_id)->paginate(20);
     return view('site.category-news', ['post' => $post, 'category_name' => $category_name]);
 })->name('category');
 
