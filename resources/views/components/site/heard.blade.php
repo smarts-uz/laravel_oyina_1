@@ -17,7 +17,7 @@
               <span class="flex items-center"><div class="dot-green"></div><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span>
               {{ \Carbon\Carbon::parse($item->created_at)->format('d.m.Y') }}</span>
             </div>
-            <a href="#">{{ $item->title }}</a>
+            <a href="{{ route('singlePost', ['post' => $item->slug]) }}">{{ $item->title }}</a>
           </div>
         @endforeach
         </div>

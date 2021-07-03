@@ -17,7 +17,7 @@
 
               </div>
             </div>
-            <a class="" href="#">{{ $item->title }}
+            <a class="" href="{{ route('singlePost', ['post' => $item->slug]) }}">{{ $item->title }}
               </a>
           </div>
         </div>

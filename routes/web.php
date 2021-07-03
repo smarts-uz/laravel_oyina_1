@@ -19,13 +19,18 @@ Route::get('/', function () {
     return view('site.index');
 });
 
+
 Route::get('/posts/{post:slug}', function(Post $post) {
     return view('site.single-news', ['post' => $post]);
-});
+})->name('singlePost');
 
-Route::get('/categorynews', function () {
-    return view('site.category-news');
-});
+
+Route::get('/category/{category_name}', function ($category_name) {
+    $post = Post::query()->where('category_id', '=', $category_id)->paginate(20);
+    $category_name = \App\Models\Admin\Category::query()->find($category_id);
+    return view('site.category-news', ['post' => $post, 'category_name' => $category_name]);
+})->name('category');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
