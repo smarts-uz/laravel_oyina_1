@@ -1,0 +1,205 @@
+.single-news{
+    margin: 2em auto;
+}
+.single-news img{
+    width: 100%;    
+}
+.single-news .single-bookmark{
+    height: 3rem;
+    width: 3em;
+    position: absolute;
+    top: 1.45em;
+    right: 1.25em;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+}
+.single-news .single-bookmark:hover{
+    background: rgba(255, 255, 255, 0.7);
+}
+.single-news .single-bookmark .iconify{
+    width: 2em;
+    height: 3em;
+}
+.single-news-dates SPAN{
+
+color: #46494F;
+
+}
+
+.single-news-headtext h1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    color:  #222222;;
+}
+.single-news-paragraph p{
+    font-size: 1.2rem;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    color: #46494F;
+
+}
+
+
+/* cATEGORY NEWS */
+.category-news-content{
+    column-gap: 1.5em;
+    row-gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.category-news-content-main{
+    width: 23.5%;
+}
+.category-news-img::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #235AC1;
+    border-radius: 10px;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+}
+.category-news-img{
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+.category-news-img img{
+    width: 100%;
+    height: 100%;
+}
+.category-news-img p{
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5em;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    background: rgb(30,185,128, 0.5);
+    border-radius: 50px;
+    padding: 0.25em 0.65em;
+    font-size: 0.8rem;
+}
+.category-bookmark{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: rgba(30,185,128, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.category-bookmark:hover{
+    background-color: rgba(30,185,128, 0.7);
+}
+.category-bookmark .iconify{
+    width: 20px;
+    height: 25px;
+}
+.category-news-date{
+    display: flex;
+    column-gap: 0.8rem;
+    flex-wrap: wrap;
+}
+.category-news-date span{
+    column-gap: 2px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.75em;
+    line-height: 16px;
+    /* muted */
+    color: #8291AE;
+}
+.category-news-content-main a{
+    display: block;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 125%;
+    /* or 24px */
+    letter-spacing: 0.02em;
+    /* gray */
+    color: #46494F;
+    margin-top: 0.3rem;
+}
+.category-news-content-main a:hover{
+    text-decoration: underline;
+}
+
+.pagination{
+    width: 100%;
+    padding: 1.5rem 0;
+}
+.pagination .pagination-content{
+    display: flex;
+    column-gap: 0.5rem;
+    justify-content: flex-end;
+}
+.pagination .pagination-content a{
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(30,185,128, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: #fff;
+}
+.pagination .pagination-content a:hover{
+    background-color: rgba(30,185,128, 0.8);
+}
+.pagination .pagination-content a.active-pagination{
+    background-color: rgba(30,185,128, 0.9);
+}
+.pagination .pagination-content a.dot{
+    background-color: rgba(30,185,128, 0);
+    color: #46494F;
+}
+
+
+
+
+@media (max-width: 1024px){    
+    .single-news-headtext h1{
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+       
+    }
+    .single-news-paragraph p{
+        font-size: 1rem;
+    }
+    
+}
+
+@media (max-width: 768px){
+    .single-news-headtext h1{
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+       
+    }
+    .single-news-paragraph p{
+        font-size: 1rem;
+    }
+}
+@media (max-width: 648px){
+    .single-news-headtext h1{
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+       
+    }
+    .single-news-paragraph p{
+        font-size: 0.9rem;
+    }
+}
