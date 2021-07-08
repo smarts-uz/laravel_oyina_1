@@ -30,8 +30,7 @@
 
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-
-
+        <script type="text/javascript" src="./js/darkmode.js"></script>
 
     </head>
     <body class="font-sans antialiased">

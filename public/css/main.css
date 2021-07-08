@@ -3,6 +3,8 @@
     padding: 0;
 }
 /* Wheather */
+
+
 .climate{
 
     padding: 0.7em 0;
@@ -204,6 +206,9 @@ text-decoration: none;
 .nav-col-2 a{
     font-family: Roboto;
     column-gap: 0.5em; 
+}
+body.dark-mode .dropdow{
+    filter: grayscale(0%);
 }
 
 .main-nav{
@@ -7027,3 +7032,1030 @@ transform: translate(-50%, -50%);
         outline: none;
     }
 }
+
+/* dark mode */
+
+body {
+    background-color: white;
+  }
+  
+  .dark-mode {
+      background-color: #fff;
+      
+  }
+
+
+
+
+
+  /* Ko'zi ojizlar uchun */
+
+body.dark-mode .wheahter-main h1{
+    /* green */
+
+    color: #000;
+}
+body.dark-mode .wheahter-main sup{
+
+    color: #000;
+}
+
+body.dark-mode .wheahter-main form select{
+   
+    color: #000;
+   
+}
+
+/* nav Sidebar menu css */
+
+body.dark-mode .sidebar-nav-menu {
+      background:  linear-gradient(rgba(236,239,245,1), rgba(236,239,245, 1)),  url(../images/splash-2.png);
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+      }
+
+
+/* End sodebar nav */
+
+
+
+body.dark-mode .topbtn{
+
+    /* green */
+
+    background: #1EB980;
+    filter: grayscale(100%);
+    /* white */
+    border: 2px solid #FFFFFF;
+}
+/* Sidebar settings */
+body.dark-mode .side-settings{
+   filter: grayscale(100%);
+    
+}
+body.dark-mode .side-settings a svg path{
+    fill: #000;
+ }
+
+
+/* Main */
+body.dark-mode .vertical_line{
+	width: 1.5px;
+	height: 1em;
+	background-color: #000;
+    margin: 0 4px;
+}
+
+body.dark-mode .first_nav{
+    background: linear-gradient(rgba(122,123,124,0.95), rgba(122,123,124, 0.95)),  url(../images/splash-1.png);
+	background-position: right;
+	background-size: 82% 100%;
+    background-repeat: no-repeat;
+    background-color: rgba(122,123,124,0.95);
+    height: 4em;
+}
+body.dark-mode .social-icons ul a{
+	width: 2em;
+	height: 2em;
+	background: rgba(77,77,80,0.8);
+	border-radius: 0.25em;
+}
+body.dark-mode .social-icons ul a:hover{
+	background: rgba(77,77,80,1);
+text-decoration: none;
+}
+body.dark-mode .social-icons ul a li .iconify{
+	color: #000;
+	width: 1.5em; 
+	height: 1.5em; 
+}
+body.dark-mode .date span,body.dark-mode .date svg,body.dark-mode .date a{
+    color: #000;
+    fill: #000;
+}
+
+body.dark-mode .main-nav{
+    background:   url(../images/layer-2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    filter: grayscale(100%);
+}
+
+body.dark-mode .bg-img img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -100;
+}
+body.dark-mode .logo-item h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 3.2em;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    /* green */
+    color: #000;
+}
+body.dark-mode .dropdow a:hover{
+    background: rgba(77,77,80,0.8) !important;
+    color: #000 !important;
+}
+
+body.dark-mode .logo-item p{
+    font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 1.2em;
+line-height: 1;
+/* dark green */
+color: #000;
+}
+body.dark-mode .end-nav{
+    border-color: #555;
+    border-block-width: 3px;
+    filter: grayscale(100%);
+    
+}
+body.dark-mode .nav-section a{
+    font-family: Roboto;
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    color: #000;
+    padding: 1em 0;
+    position: relative;
+}
+body.dark-mode .line-bottom{
+    height: 2.4px;
+    position: absolute;
+    background-color: #000;
+    bottom: -3px;
+   transition: 1s ease-in-out;
+}
+body.dark-mode .nav-section a .active{
+    width: 100%;
+    height: 2.4px;
+    position: absolute;
+    background-color: #000;
+    bottom: -3px;
+    
+}
+body.dark-mode .nav-search .iconify{
+    width: 1.6em;
+    height: 1.6em;
+    color: #000;
+}
+body.dark-mode .hamburber span{
+    display: block;
+    width: 1.9em;
+    height: 0.15em;
+    background-color: #000;
+}
+body.dark-mode .hamburber span:nth-child(1){
+    width: 1.25em;
+    margin-bottom: 7px;
+    transition: 0.3s ease;
+}
+body.dark-mode .hamburber span:nth-child(3){
+    width: 1.25em;
+    margin-top: 7px;
+    transition: 0.3s ease;
+}
+body.dark-mode .hamburber:hover span:nth-child(3), body.dark-mode .hamburber:hover  span:nth-child(1){
+    width: 1.9em;
+    transition: 0.3s ease;
+}
+
+body.dark-mode .input-search{
+    height: 40px;
+    width: 40px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border: none;
+    transition: all .5s ease-in-out;
+    padding-right: 40px;
+    color:#000;
+  } 
+
+  body.dark-mode .search-box{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    outline: none;
+    border: none;
+  }
+  
+  body.dark-mode .input-search::placeholder{
+    color: #46494F;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+  }
+  body.dark-mode .btn-search{
+    width: 40px;
+    height: 40px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+  }
+  body.dark-mode .btn-search:focus{
+      outline: none;
+      border: none;
+  }
+  body.dark-mode .btn-search:focus ~ .input-search{
+    width: 300px;
+    outline: none;
+    border-radius: 0px;
+    border-bottom:1px solid rgba(0,0,0,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+  body.dark-mode .input-search:focus .search-box{
+      border: none;
+      outline: none;
+  }
+  body.dark-mode .input-search:focus{
+    width: 300px;
+    outline: none;
+    border-radius: 0px;
+    border-bottom:1px solid rgba(0,0,0,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+  /* end navbar */
+
+
+
+  /* footer */
+  body.dark-mode footer{
+    background: linear-gradient(rgba(24,130,85,0.98), rgba(24,130,85, 0.98)),  url(../images/splash-3.png);
+	background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-top: 4em !important;
+    padding-bottom: 1em;
+    filter: grayscale(100%);
+  }
+  .footer-main{
+      column-gap: 4em;      
+  }
+  body.dark-mode .footer-menus h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    margin-bottom: 1em;
+    color: #000  !important;
+  }
+  body.dark-mode .footer-menus p{
+    font-family: Roboto;
+    font-style: normal;
+    margin-bottom: 1em;
+    opacity: 0.75;
+    font-size: 1.1em;
+    color: #000 !important;
+
+  }
+  body.dark-mode .footer-menus a{
+    font-family: Roboto;
+    font-style: normal;
+    opacity: 0.75;
+    font-size: 1.1em;
+    color: #000 !important;
+  }
+  body.dark-mode .footer-menus h3{
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    color: #000 !important;
+  }
+  body.dark-mode .footer-menus a{
+      margin-bottom: 0.6em;
+      color: #000;
+      font-size: 0.95em;
+      line-height: 1.25;
+  }
+  .footer-menus a:hover{
+      opacity: 1;
+  }
+  .footer{
+      margin-top: 0.7em;
+  }
+  body.dark-mode .footer p,body.dark-mode .footer span{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+     opacity: 0.75;
+     color: #000;
+     letter-spacing: 0.02em;
+     line-height: 1.25;
+  }
+
+  /* end footer */
+
+
+  /* Section 1 */
+  
+
+  body.dark-mode .splide__slide a{
+    display: block;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.05em;
+    line-height: 1.25em;
+    /* identical to box height */
+    padding: 1.4em 0;
+    cursor: pointer;
+    /* muted */
+
+    color: rgba(0,0,0,.8);
+}
+body.dark-mode .splide__slide a:hover{
+    color: rgba(0,0,0,1);
+}
+body.dark-mode .splide__slide a.active{
+    color: rgba(0,0,0,1);
+}
+body.dark-mode #filtercontainer{
+    filter: grayscale(100%);
+}
+body.dark-mode .news-filter-dark{
+    filter: grayscale(100%);
+}
+
+body.dark-mode .text-content h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6em;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.4em;
+    /* white */
+
+    color: #000;
+}
+body.dark-mode .statics span{
+    column-gap: 5.5px;
+    color: 000;
+}
+
+
+body.dark-mode .second-content-head h1{
+    font-size: 1.6em;
+    line-height: 1.5;
+    color: #000;
+    letter-spacing: 0.02em;
+    font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+}
+body.dark-mode .second-content-head a{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9em;
+    line-height: 1em;
+    /* identical to box height */
+    padding: 0.3em 1em;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    border-radius: 5px;
+    /* green */
+    color: #000;
+}
+body.dark-mode .second-content-head a:hover{
+    background-color: #000;
+    color: #fff;
+}
+body.dark-mode .text-content-second .bell, .bell2{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8em;
+    line-height: 0.8em;
+    
+    /* gray */
+    
+    color: #000;
+    
+    column-gap: 5px;
+}
+body.dark-mode .text-content-second .bell2 .iconify{
+    width: 0.85em;
+    height: 0.85em;
+    color: #000;
+    vertical-align: middle;
+}
+
+body.dark-mode .text-content-second .bell .iconify{
+    width: 0.85em;
+    height: 0.85em;
+    color: #000;
+}
+body.dark-mode .text-content-second a{
+    margin-top: 0.6em;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9em;
+    line-height: 19px;
+    display: block;
+
+    /* dark */
+
+    color: #000;
+}
+
+ 
+/* section tow */
+body.dark-mode .section-two {
+    column-gap: 3em;
+    margin-bottom: 2.5em;
+    filter: grayscale(100%);
+}
+body.dark-mode .section-two-content-one-head h1, body.dark-mode .section-two-content-two-head h1,body.dark-mode .section-three-first-content-head-text h1, body.dark-mode .article-content-one-head-text h1, body.dark-mode .article-content-two-head-text h1{
+    font-size: 1.6em;
+    line-height: 1.5;
+    color: #000;
+    letter-spacing: 0.02em;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+}
+body.dark-mode .section-two-content-one-head a,body.dark-mode  .section-two-content-two-head a, body.dark-mode .section-three-first-content-head-text a, body.dark-mode .article-content-one-head-text a, body.dark-mode .article-content-two-head-text a{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9em;
+    line-height: 1em;
+    /* identical to box height */
+    padding: 0.3em 1em;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    border-radius: 5px;
+    /* green */
+    color: #000;
+}
+body.dark-mode .section-two-content-one-head a:hover, body.dark-mode .section-two-content-two-head a:hover, body.dark-mode .section-three-first-content-head-text a:hover, body.dark-mode .article-content-one-head-text a:hover, body.dark-mode .article-content-two-head-text a:hover{
+    background-color: #000;
+    color: #fff;
+}
+body.dark-mode .news-date span{
+    column-gap: 2px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.75em;
+    line-height: 16px;
+    /* muted */
+    color: #000;
+}
+body.dark-mode .news-content-main a{
+    display: block;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 125%;
+    /* or 24px */
+    letter-spacing: 0.02em;
+    /* gray */
+    color: #000;
+    margin-top: 0.3rem;
+}
+
+
+body.dark-mode .top-icons {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 125%;
+    /* identical to box height, or 24px */
+   z-index: 1000;
+    letter-spacing: 0.02em;
+
+    /* white */
+
+    color: #000;
+}
+body.dark-mode .main-text h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    /* identical to box height */
+
+    letter-spacing: 0.02em;
+    color: #000;
+}
+body.dark-mode .main-text p{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8em;
+    line-height: 0.8;
+    /* identical to box height */
+    color: #000;
+    margin-bottom: 1.4em;
+}
+body.dark-mode .main-text h2{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6em;
+    line-height: 132.69%;
+    /* or 42px */
+
+    text-align: center;
+    letter-spacing: 0.06em;
+
+    /* white */
+
+    color: #000;
+
+}
+
+/* Media section */
+body.dark-mode section.media{
+    width: 100%;
+    position: relative;
+    background: linear-gradient(rgb(30,185,128, 0.9), rgb(30,185,128, 0.9)), url(../images/layer1.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3rem 0;
+    filter: grayscale(100%);
+}
+body.dark-mode .transform{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 3.8em;
+    letter-spacing: 0.02em;
+    color: #000;
+    opacity: 0.2;   
+    transform: rotate(-90deg); 
+    width: 120px;
+}
+
+body.dark-mode .media .filters-media button{
+    outline: none; 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 37px;
+    /* identical to box height */
+    letter-spacing: 0.02em;
+    /* white */
+    color: #000;
+    opacity: 1; 
+    position: relative;
+    padding: 6px 0;
+}
+body.dark-mode .media .filters-media button .div-bootom-line{
+    background-color: #000;
+}
+
+body.dark-mode .media .all-media, body.dark-mode .scholars .all-media, body.dark-mode .books .all-books,body.dark-mode  .relevance .all-relevance{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9rem;
+    /* identical to box height */
+    /* white */
+    color: #000;
+    padding: 0.2rem 1.5rem;
+    border: 1px solid rgb(0,0,0,1);
+    box-sizing: border-box;
+    border-radius: 5px;
+
+}
+body.dark-mode .media .all-media:hover, body.dark-mode .scholars .all-media:hover, body.dark-mode .books .all-books:hover,body.dark-mode .relevance .all-relevance:hover{
+    border: 1px solid rgb(0,0,0,1);
+}
+body.dark-mode .swiper-slide .link-img-video .play-icon svg path{
+    stroke: #000;
+}
+body.dark-mode .media-date {
+    column-gap: 5px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8rem;
+    line-height: 19px;
+    padding: 0.6rem 0;
+    /* identical to box height */
+    /* white */
+    color: #000;
+    opacity: 1;
+}
+body.dark-mode .swiper-slide a{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.0rem;
+    line-height: 1.4;
+    /* white */
+    color: #000;
+    display: block;
+}
+
+
+
+
+/* Section three */
+
+body.dark-mode .section-three{
+    margin: 2.5rem auto;
+    column-gap: 3em;
+filter: grayscale(100%);
+}
+body.dark-mode .cards-flag p{
+    width: 70%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 145%;
+    letter-spacing: 0.04em;
+    color: #000;
+}
+body.dark-mode .cards-icon{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.7em;
+    line-height: 19px;
+    /* identical to box height */
+    /* white */
+    column-gap: 4px;
+
+    color: #000;
+}
+body.dark-mode .cards-item p{
+    position: absolute;
+    top: 60%;
+    padding: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 145%;
+    /* or 22px */
+    color: #000 !important;
+
+    letter-spacing: 0.05em;
+}
+
+body.dark-mode .layer-one h1{
+    margin-top: 3rem;
+    font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 2.05rem;
+line-height: 2.1;
+letter-spacing: 0.02em;
+text-align: center;
+
+/* green */
+
+color: #000;
+}
+body.dark-mode .layer-one p{
+    margin-top: 3rem;
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 23px;
+    text-align: center;
+    padding-right: 20px;
+
+    /* green */
+
+    color: #000;
+}
+body.dark-mode .layer-one-text{
+    margin-top: 10px;
+    font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 0.95rem;
+line-height: 125%;
+column-gap: 4px;
+/* or 24px */
+
+letter-spacing: 0.02em;
+
+/* green */
+
+color: #000;
+}
+
+.section-three-second-content-main{
+    margin-top: 1rem;
+}
+
+body.dark-mode .img-content .eye-review{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    column-gap: 2px;
+    padding: 1.5px 5px;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.6rem;
+    line-height: 13px;
+    background: rgb(30,185,128, 0.5);
+/* green */
+    box-sizing: border-box;
+    border-radius: 5px;
+    /* identical to box height */
+    /* white */
+    color: #000;
+}
+.img-content .eye-review .iconify{
+    width: 18px;
+    height: 15px;
+}
+
+
+/* Section ancestors sliders*/
+
+body.dark-mode section.scholars{
+    width: 100%;
+    position: relative;
+    background: linear-gradient(rgb(30,185,128, 0.9), rgb(30,185,128, 0.9)), url(../images/layer2.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 3rem;
+    filter: grayscale(100%);
+}
+body.dark-mode .scholars .transform{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: 0.02em;  
+    transform: rotate(-90deg); 
+    width: 120px;
+    white-space: nowrap;
+    position: relative;
+    text-align: center;
+    margin-top: 5rem;
+    
+}
+
+body.dark-mode .scholars .filters-scholars button{
+    outline: none; 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 37px;
+    /* identical to box height */
+    letter-spacing: 0.02em;
+    /* white */
+    color: #000;
+    opacity: 1; 
+    position: relative;
+    padding: 6px 0;
+}
+body.dark-mode .div-bootom-line-scholars{
+    width: 80%;
+    height: 2.5px;
+    background-color: #000;
+    margin-top: 6px;
+    position: absolute;
+    opacity: 0;
+}
+body.dark-mode .mySwiper .swiper-slide .cholars-text p{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.3;
+    text-align: center;
+    /* white */
+
+    color: #000;
+}
+.mySwiper .swiper-slide a:hover p{
+     text-decoration: underline;
+     opacity: 0.8;
+}
+
+
+/* Section four */
+body.dark-mode .article{
+    margin: 2.5rem auto;
+    column-gap: 3em;
+    filter: grayscale(100%);
+}
+
+
+
+
+
+/* section books slider */
+body.dark-mode section.books{
+    width: 100%;
+    position: relative;
+    background: linear-gradient(rgb(30,185,128, 0.9), rgb(30,185,128, 0.9)), url(../images/layer1.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+    filter: grayscale(100%);
+}
+body.dark-mode .books .transform{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 3rem;
+line-height: 1;
+    letter-spacing: 0.02em;  
+    transform: rotate(-90deg); 
+    width: 120px;
+    white-space: nowrap;
+    position: relative;
+    text-align: center;
+    margin-top: 9rem;
+    
+}
+
+body.dark-mode .books .filters-books button{
+    outline: none; 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 37px;
+    /* identical to box height */
+    letter-spacing: 0.02em;
+    /* white */
+    color: #000;
+    opacity: 1; 
+    position: relative;
+    padding: 6px 0;
+}
+.books .filters-books button.active-3{
+     opacity: 1;
+}
+body.dark-mode .div-bootom-line-books{
+    width: 80%;
+    height: 2.5px;
+    background-color: #000;
+    margin-top: 6px;
+    position: absolute;
+    opacity: 0;
+}
+
+body.dark-mode .booksslide .swiper-slide .slide-text a{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.05rem;
+    line-height: 1;
+    color: #000;
+    opacity: 0.75;
+    display: block ;
+}
+
+
+
+
+
+/* Section 5 */
+body.dark-mode .section-five{
+    margin: 2.5rem auto;
+    filter: grayscale(100%);
+}
+
+
+
+/* Section Dolzarb slider */
+
+body.dark-mode section.relevance{
+    width: 100%;
+    position: relative;
+    background: linear-gradient(rgb(30,185,128, 0.9), rgb(30,185,128, 0.9)), url(../images/layer1.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3rem 0;
+    filter: grayscale(100%);
+}
+body.dark-mode .relevance .transform{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 4rem;
+    line-height: 1;
+    letter-spacing: 0.02em;  
+    transform: rotate(-90deg); 
+    width: 120px;
+    white-space: nowrap;
+    position: relative;
+    text-align: center;
+    margin-top: 2rem;
+    
+}
+body.dark-mode .relevance .filters-relevance button{
+    outline: none; 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 37px;
+    /* identical to box height */
+    letter-spacing: 0.02em;
+    /* white */
+    color: #000;
+    opacity: 0.5; 
+    position: relative;
+    padding: 6px 0;
+}
+body.dark-mode .div-bootom-line-relevance{
+    width: 80%;
+    height: 2.5px;
+    background-color: #000;
+    margin-top: 6px;
+    position: absolute;
+    opacity: 0;
+}
+body.dark-mode .relevance .swiper-slide .rel-image p{
+    position: absolute;
+    top:0.75rem;
+    right:0.75rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    background: rgb(30,185,128, 0.5);
+    border-radius: 50px;
+    padding: 0.45em 1.35em;
+    color: #000;
+}
+.relevance .swiper-slide .rel-date{
+
+    margin: 0.6rem 0;
+}
+body.dark-mode .relevance .swiper-slide .rel-date span
+{
+    column-gap: 5px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8rem;
+    /* identical to box height */
+    /* white */
+
+    color: #000;
+
+    opacity: 0.65;
+}
+
+body.dark-mode .relevance .swiper-slide .swiper-slide-text-link{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    display: block;
+    /* white */
+    color: #000;
+}
+
+
+
+/* Section 6 */
+body.dark-mode .section-six{
+    margin-top: 2.5rem;
+    margin-bottom: 5rem;
+    filter: grayscale(100%);
+}
+
