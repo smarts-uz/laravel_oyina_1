@@ -4,7 +4,7 @@
 <x-category/>
     <div class="category-news container mx-auto my-8">
     <div class="section-two-content-one-head flex items-center justify-between">
-          <h1 class="">{{ $category_name->name }} yangiliklari</h1>
+          <h1 class="">{{ $category->name }} yangiliklari</h1>
 
         </div>
         <div class="line-gradient-two"></div>
@@ -24,7 +24,7 @@
                     <span class="flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> {{ \Carbon\Carbon::parse($item->created_at)->format('H:m / d.m.Y') }}</span>
                     <span class="flex items-center"><span class="iconify" data-icon="mdi:eye" data-inline="false"></span>{{ $item->views }}</span>
                 </div>
-                <a href="#">{{ $item->title }}</a>
+                <a href="{{ route('singlePost', ['post' => $item->slug]) }}">{{ $item->title }}</a>
             </div>
           @endforeach
 

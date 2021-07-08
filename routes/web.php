@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Admin\Post;
+use App\Models\Admin\Talk;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,11 +26,15 @@ Route::get('/posts/{post:slug}', function(Post $post) {
 })->name('singlePost');
 
 
-Route::get('/category/{category_id}', function ($category_id) {
-    $category_name = \App\Models\Admin\Category::query()->find($category_id);
-    $post = Post::query()->where('category_id', '=', $category_id)->paginate(20);
-    return view('site.category-news', ['post' => $post, 'category_name' => $category_name]);
+Route::get('/category/{category_slug}', function ($category_slug) {
+    $category = \App\Models\Admin\Category::query()->where('slug', '=', $category_slug)->first();
+    $post = Post::query()->where('category_id', '=', $category->id)->paginate(20);
+    return view('site.category-news', ['post' => $post, 'category' => $category]);
 })->name('category');
+
+Route::get('interview/{id}', function (Talk $interview){
+    return view('site.interview', ['content' => $interview]);
+});
 
 
 Route::group(['prefix' => 'admin'], function () {

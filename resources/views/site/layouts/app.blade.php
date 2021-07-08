@@ -23,8 +23,8 @@
 
         <link rel="stylesheet" type="text/css" href="./css/splide.min.css">
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
-	    <link rel="stylesheet" type="text/css" href="./css/glide.core.min.css">
-        <link rel="stylesheet" type="text/css" href="./css/glide.theme.min.css">
+	    <link rel="stylesheet" type="text/css" href="{{ asset('css/glide.core.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/glide.theme.min.css') }}">
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 

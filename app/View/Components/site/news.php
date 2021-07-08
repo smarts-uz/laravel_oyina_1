@@ -15,7 +15,8 @@ class news extends Component
      */
     public function __construct()
     {
-        $this->news = Post::query()->orderBy('id', 'desc')->limit(4)->get();
+        $this->news = Post::query()->orderBy('id', 'desc')
+            ->limit(4)->get();
     }
 
     /**

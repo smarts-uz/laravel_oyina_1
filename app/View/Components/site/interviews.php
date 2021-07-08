@@ -2,10 +2,12 @@
 
 namespace App\View\Components\site;
 
+use App\Models\Admin\Talk;
 use Illuminate\View\Component;
 
 class interviews extends Component
 {
+    public $interviews;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,8 @@ class interviews extends Component
      */
     public function __construct()
     {
-        //
+        $this->interviews = Talk::query()->orderBy('id', 'desc')
+            ->limit(4)->get();
     }
 
     /**
