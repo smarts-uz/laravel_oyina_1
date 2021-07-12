@@ -17,13 +17,10 @@
                 <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
             </div>
 
-            <p class="text-white"><span class="iconify text-white" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>{{ $post->category->name }}</p>
             <div class="text-content">
 
                 <div class="statics flex items-center gap-x-8 my-4" >
-                    <span class="flex items-center gap-x-2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> {{ \Carbon\Carbon::parse($post->created_at)->format('H:m / d.m.Y') }}</span>
-                    <span class="flex items-center gap-x-2"><span class="iconify" data-icon="mdi:eye" data-inline="false"></span> {{ $post->views }}</span>
-                    <span class="flex items-center gap-x-2"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
+                    <span class="flex items-center gap-x-2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> {{ \Carbon\Carbon::parse($content->created_at)->format('H:m / d.m.Y') }}</span>
                 </div>
             </div>
         </div>
@@ -32,7 +29,7 @@
 
     <div class="container mx-auto single-news">
         <div class="single-news-paragraph">
-            {!! $post->body !!}
+            {!! $content->content !!}
         </div>
     </div>
 @endsection

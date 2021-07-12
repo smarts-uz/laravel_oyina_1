@@ -4,8 +4,10 @@ namespace App\View\Components\site;
 
 use Illuminate\View\Component;
 
+
 class article extends Component
 {
+    public $articles;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,9 @@ class article extends Component
      */
     public function __construct()
     {
-        //
+        $this->articles = \App\Models\Admin\Article::query()
+            ->orderBy('id', 'desc')
+            ->limit(4)->get();
     }
 
     /**

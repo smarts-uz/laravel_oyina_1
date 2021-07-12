@@ -4,32 +4,34 @@
 <x-category/>
     <div class="category-news container mx-auto my-8">
     <div class="section-two-content-one-head flex items-center justify-between">
-          <h1 class="">{{ $category->name }} yangiliklari</h1>
+          <h1 class="">Intervyular</h1>
 
         </div>
         <div class="line-gradient-two"></div>
         <div class="category-news-content flex">
 
-          {{-- Dolzarb --}}
-          @foreach($post as $item)
+          @foreach($interviews as $interview)
             <div class="category-news-content-main">
                 <div class="category-news-img">
-                    <img src="{{ Voyager::image($item->image) }}" alt="">
+                    @php $images = json_decode($interview->image) @endphp
+                    @foreach($images as $image)
+                        @if ($loop->first)
+                            <img class="" src="{{ Voyager::image($image) }}" alt="">
+                        @endif
+                    @endforeach
                     <div class="category-bookmark flex justify-center items-center">
                         <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                     </div>
-                    <p class="text-white"><span class="iconify text-white" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span> {{ $item->category->name }}</p>
                 </div>
                 <div class="category-news-date">
-                    <span class="flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> {{ \Carbon\Carbon::parse($item->created_at)->format('H:m / d.m.Y') }}</span>
-                    <span class="flex items-center"><span class="iconify" data-icon="mdi:eye" data-inline="false"></span>{{ $item->views }}</span>
+                    <span class="flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> {{ \Carbon\Carbon::parse($interview->created_at)->format('H:m / d.m.Y') }}</span>
                 </div>
-                <a href="{{ route('singlePost', ['post' => $item->slug]) }}">{{ $item->title }}</a>
+                <a href="{{ route('interview', ['id' => $interview->id]) }}">{{ $interview->title }}</a>
             </div>
           @endforeach
 
         </div>
-        {{ $post->links() }}
+        {{ $interviews->links() }}
         {{--<div class="pagination">
             <ul class="pagination-content">
                 <a href=""><li><</li></a>

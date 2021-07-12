@@ -3,58 +3,19 @@
       <a href="#">Barchasi</a>
     </div>
     <div class="line-gradient-five"></div>
-    
+
     <div class="grid-template-card">
-      <a href="#" class="grid-card-items">
+     @foreach($usefuls as $useful)
+      @php $icons = json_decode($useful->icon) @endphp
+      <a href="{{ $useful->link }}" class="grid-card-items">
         <div>
-          <img src="../images/gerb1.png" alt="">
+          @foreach($icons as $icon)
+              @if ($loop->first)
+                    <img src="{{ Voyager::image($icon) }}" alt="">
+              @endif
+          @endforeach
         </div>
-        <p>O‘zbekiston Respublikasi Prezidentining rasmiy veb-sayti</p>
+        <p>{{ $useful->title }}</p>
       </a>
-      <a href="#" class="grid-card-items">
-        <div>
-          <img src="../images/gerb1.png" alt="">
-        </div>
-        <p>O‘zbekiston Respublikasi Madaniyat vazirligi</p>
-      </a>
-      <a href="#" class="grid-card-items">
-        <div>
-          <img src="../images/card1.png" alt="">
-        </div>
-        <p>Respublika Ma’naviyat va Ma’rifat markazi</p>
-      </a>
-      <a href="#" class="grid-card-items">
-        <div>
-          <img src="../images/card2.png" alt="">
-        </div>
-        <p>O’zbekiston Badiiy
-          akademiya</p>
-      </a>
-      <a href="#" class="grid-card-items">
-        <div>
-          <img src="../images/card3.png" alt="">
-        </div>
-        <p>O’zbekiston Yozuvchilar
-          uyushmasi</p>
-      </a>
-      <a href="#" class="grid-card-items">
-        <div>
-          <img src="../images/card4.png" alt="">
-        </div>
-        <p>O’zbekiston Islom 
-          sivilizatsiya markazi</p>
-      </a>
-      <a href="#" class="grid-card-items">
-        <div>
-          <img src="../images/card5.png" alt="">
-        </div>
-        <p>O’zbekiston Milliy kutubxonasi</p>
-      </a>
-      <a href="#" class="grid-card-items">
-        <div>
-          <img src="../images/card6.png" alt="">
-        </div>
-        <p>O’zbekiston Fanlar
-          akademiyasi</p>
-      </a>
+     @endforeach
     </div>

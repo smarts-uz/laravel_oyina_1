@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-class VoyagerArticleController extends VoyagerBaseController
+class VoyagerHistoryController extends VoyagerBaseController
 {
-
+    //
 }
