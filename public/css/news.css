@@ -20,10 +20,8 @@
     width: 2em;
     height: 3em;
 }
-.single-news-dates SPAN{
-
-color: #46494F;
-
+.single-news-dates span{
+    color: #46494F;
 }
 
 .single-news-headtext h1{
@@ -33,6 +31,14 @@ color: #46494F;
     font-style: normal;
     font-weight: 500;
     color:  #222222;;
+}
+.single-news-headtext h2{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    color:  #46494F;;
 }
 .single-news-paragraph p{
     font-size: 1.2rem;

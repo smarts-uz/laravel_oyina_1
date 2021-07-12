@@ -5,7 +5,7 @@
 
 
   {{-- Yangiliklar section --}}
-  <section>
+  <section class="news-filter-dark">
     <x-category/>
     <div class="section-one-content container mx-auto flex">
         <x-newsvideo/>
