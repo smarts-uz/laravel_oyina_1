@@ -19,8 +19,8 @@ class ReviewsController extends Controller
         $comment->user_id = $request->user;
         $comment->type = $request->type;
 
-        if($request->type == "books"){
-            $comment->book_id = $id;
+        if($request->type == "books" || $request->type == "articles"){
+            $comment->relation_id = $id;
         }
 
         $comment->save();

@@ -135,7 +135,9 @@
                         </div>
                     </div>
 
-                    {{ count($comments) > 0 ? `<div class="comment_hr"></div>` : "" }}
+                    @if (count($comments) > 1)
+                        <div class=comment_hr></div>
+                    @endif
                 @endforeach
 
                 </div>

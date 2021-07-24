@@ -80,8 +80,9 @@ class MainPageController extends Controller
 
     public function article($id)
     {
+        $comments = Comment::where('type', 'articles')->where('relation_id', $id)->where('status', 1)->get();
         $article = Article::query()->find($id);
-        return view('site.articles.article', compact('article'));
+        return view('site.articles.article')->with(compact('article'))->with(compact('comments'));
     }
 
     public function articleCategory($category_slug)
@@ -156,7 +157,7 @@ class MainPageController extends Controller
 
     public function singleBook($id)
     {
-        $comments = Comment::where('book_id', $id)->where('status', 1)->get();
+        $comments = Comment::where('type', 'books')->where('relation_id', $id)->where('status', 1)->get();
         $book = Publication::query()->find($id);
         return view('site.books.singlebook')->with(compact('book'))->with(compact('comments'));
     }
