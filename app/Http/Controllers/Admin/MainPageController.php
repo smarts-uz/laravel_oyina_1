@@ -22,6 +22,7 @@ use App\Models\Admin\FunnyCategory;
 use App\Models\Admin\Funny;
 use App\Models\Admin\Audio;
 use App\Models\Admin\DocumentCategory;
+use App\Models\Comment;
 
 class MainPageController extends Controller
 {
@@ -155,8 +156,9 @@ class MainPageController extends Controller
 
     public function singleBook($id)
     {
+        $comments = Comment::where('book_id', $id)->where('status', 1)->get();
         $book = Publication::query()->find($id);
-        return view('site.books.singlebook', compact('book'));
+        return view('site.books.singlebook')->with(compact('book'))->with(compact('comments'));
     }
 
     public function bookCategory($category_slug)
