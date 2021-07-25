@@ -17,6 +17,7 @@ class article extends Component
     {
         $this->articles = \App\Models\Admin\Article::query()
             ->orderBy('id', 'desc')
+            ->where('lang', '=', app()->getLocale())
             ->limit(4)->get();
     }
 

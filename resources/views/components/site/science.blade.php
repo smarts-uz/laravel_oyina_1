@@ -1,6 +1,6 @@
         <div class="section-three-first-content-head-text flex items-center justify-between">
-          <h1 class="">Ilm-fan yangiliklari</h1>
-          <a href="#">Barchasi</a>
+          <h1 class="">@lang('site.content_menus.edu_new')</h1>
+          <a href="{{ route('category', ['category_slug' => 'ilm-fan']) }}">@lang('site.navbar.all')</a>
         </div>
         <div class="line-gradient-four"></div>
         <div class="section-three-cards-two flex">

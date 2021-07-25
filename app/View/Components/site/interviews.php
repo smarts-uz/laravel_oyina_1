@@ -15,7 +15,9 @@ class interviews extends Component
      */
     public function __construct()
     {
-        $this->interviews = Talk::query()->orderBy('id', 'desc')
+        $this->interviews = Talk::query()
+            ->where('lang', '=', app()->getLocale())
+            ->orderBy('id', 'desc')
             ->limit(4)->get();
     }
 

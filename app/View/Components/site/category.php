@@ -14,9 +14,7 @@ class category extends Component
      */
     public function __construct()
     {
-        $this->categories = \App\Models\Admin\Category::query()
-            ->where('parent_id', '=', null)
-            ->get();
+        $this->categories = \App\Models\Admin\Category::query()->get();
     }
 
     /**
@@ -24,6 +22,7 @@ class category extends Component
      *
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
+
     public function render()
     {
         return view('components.site.category');

@@ -21,4 +21,5 @@ class Category extends \TCG\Voyager\Models\Category
         return $this->hasMany(Voyager::modelClass('Post'))
             ->orderBy('created_at', 'DESC');
     }
+    
 }

@@ -1,6 +1,6 @@
 <div class="section-two-content-one-head flex items-center justify-between">
-          <h1 class="">Dolzarb</h1>
-          <a href="#">Barchasi</a>
+          <h1 class="">@lang('site.content_menus.current')</h1>
+          <a href="{{ route('postType', ['id' => 1]) }}">@lang('site.navbar.all')</a>
         </div>
         <div class="line-gradient-two"></div>
         <div class="news-content flex">

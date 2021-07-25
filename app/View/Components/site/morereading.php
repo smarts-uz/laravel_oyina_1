@@ -15,7 +15,10 @@ class morereading extends Component
      */
     public function __construct()
     {
-        $this->news = Post::query()->orderBy('views', 'desc')->limit(4)->get();
+        $this->news = Post::query()
+            ->orderBy('views', 'desc')
+            ->where('lang', '=', app()->getLocale())
+            ->limit(4)->get();
     }
 
     /**

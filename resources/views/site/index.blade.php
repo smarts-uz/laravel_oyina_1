@@ -6,10 +6,10 @@
 
   {{-- Yangiliklar section --}}
   <section class="news-filter-dark">
-    <x-category/>
+    {{--<x-category/>--}}
     <div class="section-one-content container mx-auto flex">
         <x-newsvideo/>
-        <x-latest-news/>
+        <x-latest-news limit=4/>
     </div>
   </section>
 
@@ -75,7 +75,6 @@
     <div class="article-content-one">
       <div class="article-content-one-head">
         <x-article/>
-
       </div>
     </div>
 
@@ -92,7 +91,6 @@
   {{-- Section five --}}
   <section class="section-five container mx-auto">
     <x-interviews/>
-
   </section>
 
 

@@ -54,3 +54,8 @@ const btnstg = document.querySelector(".settings-btn");
       }
     });
   }
+
+
+  function darkma() {
+    document.body.classList.add('darkfilter');
+  }
