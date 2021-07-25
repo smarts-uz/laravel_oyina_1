@@ -177,54 +177,59 @@
 </style>
 <section class="media">
 
-    <div class="container flex items-center justify-between mx-auto">
-        <div id="filters-media" class="flex filters-media">
+    <div class="container mx-auto flex items-center justify-between">
+        <div id="filters-media" class="filters-media flex">
           <button class="filter-option active-1" data-filter="video" onclick=filtervidfoto(event)>@lang('site.content_menus.video') <div class="div-bootom-line"></div></button>
           <button class="filter-option"  data-filter="foto" onclick=filtervidfoto(event)>@lang('site.content_menus.foto') <div class="div-bootom-line"></div></button>
         </div>
         <a href="{{ route('multimedia') }}" class="all-media">@lang('site.navbar.all')</a>
     </div>
-    <div class="flex flex-row items-center media_filter_container">
+    <div class="media_filter_container flex flex-row items-center">
         <div class="transform">MEDIA</div>
       <div class="swiper-container mediaswipe video">
 
 
 
           {{--    Videolar uchun--}}
-          @foreach($videos as $key => $item)
-              <div style="display:none;" id="video{{ $key + 1 }}">
-                  <video class="lg-video-object lg-html5 video-js vjs-default-skin"  controls preload="">
-                      <source src="{{ Voyager::image($item->video) }}" type="video/mp4">
-                  </video>
-              </div>
-          @endforeach
+{{--          @foreach($videos as $key => $item)--}}
+{{--              <div style="display:none;" id="video{{ $key + 1 }}">--}}
+{{--                  <video class="lg-video-object lg-html5 video-js vjs-default-skin"  controls preload="">--}}
+{{--                      <source src="{{ Voyager::image($item->video) }}" type="video/mp4">--}}
+{{--                  </video>--}}
+{{--              </div>--}}
+{{--          @endforeach--}}
 
 
         <div class="swiper-wrapper" id="video-gallery_main">
 
 
          @foreach($videos as $key => $item)
-            <div class="swiper-slide " data-poster="{{ Voyager::image($item->image) }}" data-html="#video{{ $key + 1 }}">
-            <a href="#" class="relative block link-img-video" >
+            <a class="swiper-slide"
+               data-lg-size="1280-720"
+               data-src="//www.youtube.com/watch?v=egyIeygdS_E"
+               data-poster="https://img.youtube.com/vi/egyIeygdS_E/maxresdefault.jpg"
+               data-sub-html="<h4>Visual Soundscapes - Mountains | Planet Earth II | BBC America</h4><p>On the heels of Planet Earth II’s record-breaking Emmy nominations, BBC America presents stunning visual soundscapes from the series' amazing habitats.</p>"
+            >
+            <div  class="relative block link-img-video" >
                 <img src="{{ Voyager::image($item->image) }}" alt="">
                 <div class="play-icon">
                   <svg width="70" height="70" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path opacity="0.75" d="M31.0041 61.4717L31.0125 61.4671L31.0208 61.4623L59.3993 45.1769C63.0612 43.1352 63.0529 37.8642 59.4198 35.8024L31.0534 18.557L31.0273 18.5411L31.0006 18.5263C27.4509 16.5617 23.0161 19.0987 23.0161 23.2258V56.7742C23.0161 60.9223 27.4732 63.4383 31.0041 61.4717ZM1.5 40C1.5 18.7317 18.7317 1.5 40 1.5C61.2683 1.5 78.5 18.7317 78.5 40C78.5 61.2683 61.2683 78.5 40 78.5C18.7317 78.5 1.5 61.2683 1.5 40Z" stroke="white" stroke-width="3"/>
                   </svg>
                 </div>
-              </a>
-              <div class="flex items-center media-date">
+              </div>
+              <div class="media-date flex items-center">
                 <span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span>
                 <span>{{ \Carbon\Carbon::parse($item->created_at)->format('d.m.Y | H:m') }}</span>
               </div>
-              <a href="#">{{ $item->title }} </a>
-          </div>
+              <p href="#">{{ $item->title }} </p>
+          </a>
          @endforeach
 
         </div>
       </div>
 
-            <div class="hidden swiper-container splide fotoswipe foto" id="splidefoto">
+            <div class="swiper-container splide fotoswipe foto hidden" id="splidefoto">
                 <div class="splide__track">
                     <div class="splide__list">
                     @foreach($photos as $key => $photo)
@@ -232,12 +237,12 @@
                           @php $images = json_decode($photo->content); @endphp
                           @foreach($images as $image)
                               @if ($loop->first)
-                                <a href="{{ Voyager::image($image) }}" data-fancybox="img{{ $key + 1 }}" data-caption="{{ $photo->title }} <span>{{ \Carbon\Carbon::parse($photo->created_at)->format('H:m / d.m.Y') }}</span>" class="relative block link-img-video photos boxItem">
+                                <a href="{{ Voyager::image($image) }}" data-fancybox="img{{ $key + 1 }}" data-caption="{{ $photo->title }} <span>{{ \Carbon\Carbon::parse($photo->created_at)->format('H:m / d.m.Y') }}</span>" class="relative link-img-video block photos boxItem">
                                   <img src="{{ Voyager::image($image) }}" alt="">
                                 </a>
                               @endif
                           @endforeach
-                          <div class="flex items-center media-date">
+                          <div class="media-date flex items-center">
                               <span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span>
                               <span>{{ \Carbon\Carbon::parse($photo->created_at)->format('H:m / d.m.Y') }}</span>
                           </div>
@@ -247,7 +252,7 @@
                             <!-- data-fancybox="img1" ga tegishli rasmlar galeriyasi Data caption tepadagi bilan bir xil boladi  -->
                       <div style="display:none;">
                           @foreach($images as $image)
-                              <a style="display: none;" class="relative block boxItem link-img-video photos" href="{{ Voyager::image($image) }}" data-fancybox="img{{ $key + 1 }}" data-caption="{{ $photo->title }} <span>{{ \Carbon\Carbon::parse($photo->created_at)->format('H:m / d.m.Y') }}</span>">
+                              <a style="display: none;" class="boxItem relative link-img-video block photos" href="{{ Voyager::image($image) }}" data-fancybox="img{{ $key + 1 }}" data-caption="{{ $photo->title }} <span>{{ \Carbon\Carbon::parse($photo->created_at)->format('H:m / d.m.Y') }}</span>">
                                   <img src="{{ Voyager::image($image) }}" alt="">
                               </a>
                           @endforeach
