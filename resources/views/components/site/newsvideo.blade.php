@@ -17,12 +17,16 @@
         </div>
       </div> -->
 
-      <div class="first-content ">
-            <video class="content-video" style=" width: 100%; height: 100% !important; object-fit: cover;" preload="auto" autoplay="true" loop="true" muted="muted">
-                <source src="{{ Voyager::image($videocontent->video) }}" type="video/mp4">
-            </video>
+      <div class="first-content " >
+{{--            <video  style=" width: 100%; height: 100% !important; object-fit: cover;" preload="auto" autoplay="true" loop="true" muted="muted">--}}
+{{--                <source src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1" type="video/mp4">--}}
+{{--            </video>--}}
 
-            <div class="text-content">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vqACdbFBhm8?autoplay=1&mute=1">
+          </iframe>
+          <div class="text-content">
              <a> <h1>{!! $videocontent->content !!}</h1></a>
             </div>
       </div>
+
+

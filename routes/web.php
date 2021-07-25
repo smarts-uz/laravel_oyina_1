@@ -178,6 +178,21 @@ Route::get('doc', function()
     return View::make('user.document.documents');
 })->name('doc');
 
+Route::get('video_user', function()
+{
+    return View::make('user.video.videos');
+})->name('video_user');
+
+Route::get('photo_user', function()
+{
+    return View::make('user.photo.photos');
+})->name('photo_user');
+
+Route::get('audio_user', function()
+{
+    return View::make('user.audio.audios');
+})->name('audio_user');
+
 Route::get('profile', function()
 {
    return View::make('user.profile.profile');

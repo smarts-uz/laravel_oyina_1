@@ -207,241 +207,45 @@
                     <h2
                             class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
                     >
-                        Audio kitoblar
+                        Fotolavhalar
                     </h2>
 
-                    <div class="nazm_cards">
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
+                    <ul class="mediateka_photo_cards_single">
+                        <!--  data-fancybox bir xil bolganlari bitta galaeriyada ochadi  -->
 
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
+                                    <a class="boxItem" href="../images/img1.png" data-fancybox="img1" data-caption="Электрон хизматларни кўпайтириш бўйича кўрсатмалар берилди <span>08.04.2021</span>">
+                                        <div class="mediateka_photo_content">
+                                            <img src="../images/img1.png" alt="">
+                                        </div>
+                                        <div class="flex items-center media-date">
+                                            <span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span>
+                                            <span>20.02.2021</span>
+                                        </div>
+                                        <p>qdwqdqwdq wd qw d q wdqwdqwdqwd qwd q wd qw dq wd  qwd qwdqwdqwd</p>
+                                    </a>
+                                    <!-- data-fancybox="img1" ga tegishli rasmlar galeriyasi Data caption tepadagi bilan bir xil boladi  -->
+                                    <div style="display: none;">
+                                            <a style="display: none;" class="boxItem" href="../images/img1.png" data-fancybox="img1" data-caption="Электрон хизматларни кўпайтириш бўйича кўрсатмалар берилди <span>08.04.2021</span>">
+                                                <div class="mediateka_photo_content">
+                                                    <img src="../images/img1.png" alt="">
+                                                </div>
+                                            </a>
+                                        <a style="display: none;" class="boxItem" href="../images/img1.png" data-fancybox="img1" data-caption="Электрон хизматларни кўпайтириш бўйича кўрсатмалар берилди <span>08.04.2021</span>">
+                                            <div class="mediateka_photo_content">
+                                                <img src="../images/img1.png" alt="">
+                                            </div>
+                                        </a>
+                                    </div>
+                    </ul>
 
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                    </div>
 
 
 
             </main>
         </div>
     </div>
+
+
 
 
 @endsection

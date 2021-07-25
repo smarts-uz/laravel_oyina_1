@@ -141,8 +141,7 @@
         <!-- Mediatek -->
         <script src="http://vjs.zencdn.net/4.12/video.js"></script>
 
-        <!-- Mediatek -->
-        <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+        
 
 
 

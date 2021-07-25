@@ -6,6 +6,7 @@
         }
     }
 </style>
+<link type="text/css" rel="stylesheet" href="{{ asset('css/lightgallery.css')}}" />
 
 @section('content')
 
@@ -207,236 +208,78 @@
                     <h2
                             class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
                     >
-                        Audio kitoblar
+                        Videolavhalar
                     </h2>
 
-                    <div class="nazm_cards">
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
+                    <div class="mediateka_video_cards">
 
-                                    <img src="../images/img4.png" alt="">
+
+                        <ul class="mediateka_video_card_single" id="video-gallery">
+
+                                <a class="swiper-slide mediateka_cards"
+                                   data-lg-size="1280-720"
+                                   data-src="//www.youtube.com/watch?v=egyIeygdS_E"
+                                   data-poster="https://img.youtube.com/vi/egyIeygdS_E/maxresdefault.jpg"
+                                   data-sub-html="<h4>Visual Soundscapes - Mountains | Planet Earth II | BBC America</h4><p>On the heels of Planet Earth II’s record-breaking Emmy nominations, BBC America presents stunning visual soundscapes from the series' amazing habitats.</p>"
+                                >
+                                    <div  class="relative block link-img-video" >
+                                        <img src="../images/img1.png" alt="">
+                                        <div class="play-icon">
+                                            <svg width="70" height="70" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="0.75" d="M31.0041 61.4717L31.0125 61.4671L31.0208 61.4623L59.3993 45.1769C63.0612 43.1352 63.0529 37.8642 59.4198 35.8024L31.0534 18.557L31.0273 18.5411L31.0006 18.5263C27.4509 16.5617 23.0161 19.0987 23.0161 23.2258V56.7742C23.0161 60.9223 27.4732 63.4383 31.0041 61.4717ZM1.5 40C1.5 18.7317 18.7317 1.5 40 1.5C61.2683 1.5 78.5 18.7317 78.5 40C78.5 61.2683 61.2683 78.5 40 78.5C18.7317 78.5 1.5 61.2683 1.5 40Z" stroke="white" stroke-width="3"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="media-date flex items-center">
+                                        <span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span>
+                                        <span>12.02.2021</span>
+                                    </div>
+                                    <p href="#"> Lorem ipsum dolor sit amet, consectetur adipisicin wewec wec we cwec w ec we cw ec g elit. Architecto beatae corpor </p>
+                                </a>
+
+                            <a class="swiper-slide mediateka_cards"
+                               data-lg-size="1280-720"
+                               data-src="//www.youtube.com/watch?v=egyIeygdS_E"
+                               data-poster="https://img.youtube.com/vi/egyIeygdS_E/maxresdefault.jpg"
+                               data-sub-html="<h4>Visual Soundscapes - Mountains | Planet Earth II | BBC America</h4><p>On the heels of Planet Earth II’s record-breaking Emmy nominations, BBC America presents stunning visual soundscapes from the series' amazing habitats.</p>"
+                            >
+                                <div  class="relative block link-img-video" >
+                                    <img src="../images/img1.png" alt="">
+                                    <div class="play-icon">
+                                        <svg width="70" height="70" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path opacity="0.75" d="M31.0041 61.4717L31.0125 61.4671L31.0208 61.4623L59.3993 45.1769C63.0612 43.1352 63.0529 37.8642 59.4198 35.8024L31.0534 18.557L31.0273 18.5411L31.0006 18.5263C27.4509 16.5617 23.0161 19.0987 23.0161 23.2258V56.7742C23.0161 60.9223 27.4732 63.4383 31.0041 61.4717ZM1.5 40C1.5 18.7317 18.7317 1.5 40 1.5C61.2683 1.5 78.5 18.7317 78.5 40C78.5 61.2683 61.2683 78.5 40 78.5C18.7317 78.5 1.5 61.2683 1.5 40Z" stroke="white" stroke-width="3"/>
+                                        </svg>
+                                    </div>
                                 </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                                <div class="media-date flex items-center">
+                                    <span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span>
+                                    <span>12.02.2021</span>
                                 </div>
-                            </div>
-                            <div class="all_books_star">
+                                <p href="#"> Lorem ipsum dolor sit amet, consectetur adipisicin wewec wec we cwec w ec we cw ec g elit. Architecto beatae corpor </p>
+                            </a>
 
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
+                            <a class="swiper-slide mediateka_cards"
+                               data-lg-size="1280-720"
+                               data-src="//www.youtube.com/watch?v=egyIeygdS_E"
+                               data-poster="https://img.youtube.com/vi/egyIeygdS_E/maxresdefault.jpg"
+                               data-sub-html="<h4>Visual Soundscapes - Mountains | Planet Earth II | BBC America</h4><p>On the heels of Planet Earth II’s record-breaking Emmy nominations, BBC America presents stunning visual soundscapes from the series' amazing habitats.</p>"
+                            >
+                                <div  class="relative block link-img-video" >
+                                    <img src="../images/img1.png" alt="">
+                                    <div class="play-icon">
+                                        <svg width="70" height="70" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path opacity="0.75" d="M31.0041 61.4717L31.0125 61.4671L31.0208 61.4623L59.3993 45.1769C63.0612 43.1352 63.0529 37.8642 59.4198 35.8024L31.0534 18.557L31.0273 18.5411L31.0006 18.5263C27.4509 16.5617 23.0161 19.0987 23.0161 23.2258V56.7742C23.0161 60.9223 27.4732 63.4383 31.0041 61.4717ZM1.5 40C1.5 18.7317 18.7317 1.5 40 1.5C61.2683 1.5 78.5 18.7317 78.5 40C78.5 61.2683 61.2683 78.5 40 78.5C18.7317 78.5 1.5 61.2683 1.5 40Z" stroke="white" stroke-width="3"/>
+                                        </svg>
+                                    </div>
                                 </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                                <div class="media-date flex items-center">
+                                    <span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span>
+                                    <span>12.02.2021</span>
                                 </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
-                        <div class="all_books_card">
-                            <div class="all_books_card_box">
-                                <div class="card_box_img">
-
-                                    <img src="../images/img4.png" alt="">
-                                </div>
-                                <div class="all_books_back-line"></div>
-                                <div class="bookmark_all_books">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                                </div>
-                            </div>
-                            <div class="all_books_star">
-
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/starfull.png" alt="">
-                                <img src="../images/star.png" alt="">
-
-                            </div>
-                            <div class="all_books_text" style="margin-top: 8px">
-                                <a href="">O'tkan kunlar</a>
-                            </div>
-                        </div>
-
+                                <p href="#"> Lorem ipsum dolor sit amet, consectetur adipisicin wewec wec we cwec w ec we cw ec g elit. Architecto beatae corpor </p>
+                            </a>
+                        </ul>
                     </div>
-
 
 
             </main>
