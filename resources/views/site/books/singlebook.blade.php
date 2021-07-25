@@ -112,7 +112,7 @@
                 <div class="line_gradient_single_book"></div>
 
                 <div class="comment_news comment_single_book">
-                    <h4>{{ count($comments)}} {{ count($comments)>1 ? "Comments" : "Comment" }} </h4>
+                    <h4>{{ count($comments)==0 ? "" : count($comments)}} {{ count($comments)>0 ? (count($comments)>1 ? "Comments" : "Comment") : "No Comment" }} </h4>
                     @foreach ($comments as $comment)
                     <div class="comment_news_card">
                         <div class="comment_news_left">
@@ -134,8 +134,7 @@
                             </div>
                         </div>
                     </div>
-
-                    @if (count($comments) > 1)
+                    @if (count($comments) > 1 && end($comments) == $comment )
                         <div class=comment_hr></div>
                     @endif
                 @endforeach

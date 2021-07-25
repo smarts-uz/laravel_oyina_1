@@ -123,8 +123,9 @@ class MainPageController extends Controller
 
     public function interview($id)
     {
+        $comments = Comment::where('type', 'interviews')->where('relation_id', $id)->where('status', 1)->get();
         $talk = Talk::query()->find($id);
-        return view('site.interviews.interview', ['content' => $talk]);
+        return view('site.interviews.interview', ['content' => $talk, 'comments' => $comments]);
     }
 
 
@@ -141,8 +142,10 @@ class MainPageController extends Controller
 
     public function generation($id)
     {
+        $comments = Comment::where('type', 'generations')->where('relation_id', $id)->where('status', 1)->get();
         $generation = Generation::query()->find($id);
-        return view('site.generations.generation', compact('generation'));
+
+        return view('site.generations.generation')->with(compact('generation'))->with(compact('comments'));
     }
 
 
@@ -209,9 +212,10 @@ class MainPageController extends Controller
     }
 
     public function announcement($id) {
+        $comments = Comment::where('type', 'announcements')->where('relation_id', $id)->where('status', 1)->get();
         $announcement = Announcement::query()->find($id);
 
-        return view('site.announcement.singleannouncement', compact('announcement'));
+        return view('site.announcement.singleannouncement')->with(compact('announcement'))->with(compact('comments'));
     }
 
 

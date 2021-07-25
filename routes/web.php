@@ -1,11 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Admin\Post;
-use App\Models\Admin\Talk;
-use App\Models\Admin\Category;
-use App\Models\Admin\Document;
-use App\Models\Admin\Article;
 use App\Http\Controllers\Admin\MainPageController;
 use App\Http\Controllers\ReviewsController;
 

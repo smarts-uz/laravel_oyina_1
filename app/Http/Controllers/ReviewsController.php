@@ -19,11 +19,13 @@ class ReviewsController extends Controller
         $comment->user_id = $request->user;
         $comment->type = $request->type;
 
-        if($request->type == "books" || $request->type == "articles"){
+        if($request->type == "books" || $request->type == "articles" || $request->type == "generations"|| $request->type == "interviews"){
             $comment->relation_id = $id;
         }
 
-        $comment->save();
+        if($comment->save()){
+            \Alert::info("Comment is sent to moderating!");
+        }
         return redirect()->back();
     }
 

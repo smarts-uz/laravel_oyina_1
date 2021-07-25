@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="comment_news">
-                    <h4>{{ count($comments)}} {{ count($comments)>1 ? "Comments" : "Comment" }} </h4>
+                    <h4>{{ count($comments)==0 ? "" : count($comments)}} {{ count($comments)>0 ? (count($comments)>1 ? "Comments" : "Comment") : "No Comment" }} </h4>
                     @foreach ($comments as $comment)
                     <div class="comment_news_card">
                         <div class="comment_news_left">
