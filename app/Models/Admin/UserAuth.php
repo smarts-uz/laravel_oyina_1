@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class UserAuth extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'fullname',
+        'phone',
+        'email',
+        'password'
+    ];
 }

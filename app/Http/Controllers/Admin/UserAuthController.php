@@ -31,7 +31,7 @@ class UserAuthController extends Controller
         $user->fullname = $request->fullname;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $query = $user->save();
 
         if($query) {
