@@ -14,9 +14,12 @@ class articlesidebar extends Component
      *
      * @return void
      */
-    public function __construct()
+
+    public function __construct($id)
     {
         $this->news = Article::query()->orderBy('id', 'desc')
+            ->where('lang', '=', app()->getLocale())
+            ->where('id', '!=', $id)
             ->limit(6)->get();
     }
 

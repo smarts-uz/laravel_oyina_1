@@ -18,8 +18,12 @@ class mediaslider extends Component
      */
     public function __construct()
     {
-        $this->photos = Image::query()->orderBy('id', 'desc')->limit(6)->get();
-        $this->videos = Video::query()->orderBy('id', 'desc')->limit(6)->get();
+        $this->photos = Image::query()->orderBy('id', 'desc')
+            ->where('lang', '=', app()->getLocale())
+            ->limit(6)->get();
+        $this->videos = Video::query()->orderBy('id', 'desc')
+            ->where('lang', '=', app()->getLocale())
+            ->limit(6)->get();
     }
 
     /**

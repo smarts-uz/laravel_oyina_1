@@ -19,6 +19,7 @@ class articlecategory extends Component
 
         $this->articles = Article::query()
             ->where('category_id', '=', $category)
+            ->where('lang', '=', app()->getLocale())
             ->orderBy('id', 'desc')->limit(4)->get();
     }
 

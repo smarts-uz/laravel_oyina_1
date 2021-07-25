@@ -17,6 +17,7 @@ class bookslide extends Component
     {
         $this->publications = Publication::query()
             ->orderBy('created_at', 'desc')
+            ->where('lang', '=', app()->getLocale())
             ->limit(10)->get();
     }
 

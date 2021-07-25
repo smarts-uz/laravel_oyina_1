@@ -19,6 +19,7 @@ class newscategory extends Component
 
             $this->posts = Post::query()
                 ->where('category_id', '=', $category)
+                ->where('lang', '=', app()->getLocale())
                 ->orderBy('id', 'desc')->limit(4)->get();
     }
 

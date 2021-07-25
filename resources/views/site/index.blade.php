@@ -6,8 +6,8 @@
 
   {{-- Yangiliklar section --}}
   <section class="news-filter-dark">
-    <x-category/>
-    <div class="section-one-content container mx-auto flex">
+    {{--<x-category/>--}}
+    <div class="container flex mx-auto section-one-content">
         <x-newsvideo/>
         <x-latest-news limit=4/>
     </div>
@@ -15,7 +15,7 @@
 
 
   {{-- Second section --}}
-  <section class="section-two container mx-auto flex">
+  <section class="container flex mx-auto section-two">
     <div class="section-two-content-one">
       <div class="news-one">
       <!-- Dolzarb -->
@@ -39,7 +39,7 @@
 
   <x-mediaslider/>
 
-  <section class="container mx-auto section-three flex ">
+  <section class="container flex mx-auto section-three ">
     <div class="section-three-first-content">
       <div class="section-three-first-content-head-one">
         {{-- Ilm-fan yangiliklar section --}}
@@ -54,7 +54,7 @@
 
     </div>
     <div class="section-three-second-content">
-      <div class="book-layer flex">
+      <div class="flex book-layer">
         <x-dayhistory/>
       </div>
       <div class="section-three-second-content-main">
@@ -71,7 +71,7 @@
 
 
   {{-- Section 4 Maqolalar --}}
-  <section class="article container mx-auto flex ">
+  <section class="container flex mx-auto article ">
     <div class="article-content-one">
       <div class="article-content-one-head">
         <x-article/>
@@ -89,7 +89,7 @@
   <x-bookslide/>
 
   {{-- Section five --}}
-  <section class="section-five container mx-auto">
+  <section class="container mx-auto section-five">
     <x-interviews/>
   </section>
 
@@ -98,7 +98,7 @@
   <x-relevance/>
 
 {{-- section 6 havolalar --}}
-  <section class="section-six container mx-auto">
+  <section class="container mx-auto section-six">
     <x-usefullink/>
   </section>
 

@@ -1,12 +1,193 @@
 @extends('site.layouts.app')
 
+<style type="text/css">
+    /* Font Family
+================================================== */
+
+    @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+
+
+
+
+
+    /* Misc.
+    ================================================== */
+
+    .add-bottom { margin-bottom:2rem !important; }
+    .left { float:left; }
+    .right { float:right; }
+    .center { text-align:center; }
+    .hidden { display:none; }
+
+    .no-support {
+        margin:2rem auto;
+        text-align:center;
+        width:90%;
+    }
+
+
+    /* Audio Player Styles
+    ================================================== */
+
+    audio {
+        display:none;
+    }
+
+    #audiowrap,
+    #plwrap {
+        margin:0 auto;
+    }
+
+    #tracks {
+        font-size:0;
+        position:relative;
+        text-align:center;
+    }
+
+    #nowPlay {
+        display:block;
+        font-size:0;
+    }
+
+    #nowPlay span {
+        display:inline-block;
+        font-size:1.05rem;
+        vertical-align:top;
+    }
+
+    #nowPlay span#npAction {
+        padding:21px;
+        width:30%;
+    }
+
+    #nowPlay span#npTitle {
+        padding:0.3rem 0;
+        text-align:center;
+        width:100%;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 1.2;
+        /* identical to box height */
+
+        letter-spacing: 0.02em;
+
+        color: #8090AD;
+    }
+    #npPara{
+        text-align:center;
+        width:100%;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+
+        color: #8090AD;
+    }
+
+    #plList li {
+        display: none;
+    }
+
+
+    #tracks a {
+        display: none;
+    }
+
+
+
+    /* Plyr Overrides
+    ================================================== */
+
+    .plyr--audio .plyr__controls {
+        background-color:transparent;
+        border:none;
+        color:#000;
+        font-family:"Source Sans Pro", arial, sans-serif;
+        padding:20px 20px 20px 13px;
+        width:100%;
+    }
+
+    a.plyr__controls__item.plyr__control:hover,
+    .plyr--audio .plyr__controls button:hover,
+    .plyr--audio .plyr__controls button.tab-focus:focus,
+    .plyr__play-large {
+        background-color:rgba(0, 0, 0, .1);
+    }
+
+    .plyr__progress--played,
+    .plyr__volume--display {
+        color:rgba(0, 0, 0, .1);
+    }
+
+    .plyr--audio .plyr__progress--buffer,
+    .plyr--audio .plyr__volume--display {
+        background-color:rgba(0, 0, 0, .1);
+    }
+
+    .plyr--audio .plyr__progress--buffer {
+        color:rgba(0, 0, 0, .1);
+    }
+
+    .plyr--full-ui input[type="range"] {
+        width:calc(100% - 39px);
+    }
+
+    .plyr__controls .plyr__controls__item.plyr__time {
+        font-size:14px;
+        margin-left:7px;
+    }
+
+    @media(max-width: 1024px){
+
+        #nowPlay span#npTitle {
+            padding:0.3rem 0;
+            text-align:center;
+            width:100%;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 1.2;
+            /* identical to box height */
+
+            letter-spacing: 0.02em;
+
+            color: #8090AD;
+        }
+        #npPara{
+            text-align:center;
+            width:100%;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 17px;
+            line-height: 28px;
+
+            color: #8090AD;
+        }
+    }
+
+
+    /* Media Queries
+    ================================================== */
+
+    @media only screen and (max-width:600px) {
+        #nowPlay span#npAction { display:none; }
+        #nowPlay span#npTitle { display:block; text-align:center; width:100%; }
+    }
+
+</style>
+
 <link type="text/css" rel="stylesheet" href="{{ asset('css/lightgallery.css')}}" />
 @section('content')
     <div class="books_category" style="background: #EFFFF5;">
-        <div class="container flex justify-between mx-auto splide mediateka_splide">
+        <div class="splide mediateka_splide container mx-auto flex justify-between">
             <div class="splide__track" style="order: 1;">
                 <ul class="splide__list">
-                    <li class="splide__slide "><a href="{{ route('libary') }}" class="button active">Barchasi</a></li>
+                    <li class="splide__slide "><a class="button active">Barchasi</a></li>
                     <li class="splide__slide"><a class="button">Назм</a></li>
                     <li class="splide__slide"><a class="button">Наср</a></li>
                     <li class="splide__slide"><a class="button">Драма</a></li>
@@ -15,6 +196,7 @@
                     <li class="splide__slide"><a class="button">Маърифий</a></li>
                     <li class="splide__slide"><a class="button">Аудио китоб</a></li>
                     <li class="splide__slide"><a class="button">Журналлар</a></li>
+
                 </ul>
             </div>
         </div>
@@ -22,100 +204,91 @@
 
     <section class="single_book_back_layer" >
         <div class="back_img_single_book">
-            @php $images = json_decode($book->image) @endphp
-            @foreach($images as $image)
-                @if ($loop->first)
-                    <img src="{{ Voyager::image($image) }}" alt="">
-                @endif
-            @endforeach
-            {{--<img src="../images/books1.png" alt="">--}}
+            <img src="{{ Voyager::image(json_decode($book->image)[0]) }}" alt="">
         </div>
-<<<<<<< HEAD
-        <div class="container relative mx-auto all_books all_books_single_rows">
-=======
-        <div class="container relative mx-auto all_books all_books_single_rows">
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
+        <div class="all_books all_books_single_rows container mx-auto relative">
             <div class="single_book_first">
                 <!-- Card boshlanishi sikl uchun -->
                 <div class="all_books_card">
                     <div class="all_books_card_box">
                         <div class="card_box_img">
-                            @php $images = json_decode($book->image) @endphp
-                            @foreach($images as $image)
-                                @if ($loop->first)
-                                    <img src="{{ Voyager::image($image) }}" alt="">
-                                @endif
-                            @endforeach
+                            <img src="{{ Voyager::image(json_decode($book->image)[0]) }}" alt="">
                         </div>
                         <div class="all_books_back-line"></div>
                         <div class="bookmark_all_books">
-<<<<<<< HEAD
-                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-=======
-                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
+                            <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                         </div>
                     </div>
                     <div class="all_books_star">
-                        @for ($i = 1; $i <= 8; $i++)
-                            @if ($book->stars >= $i)
+                       @for ($i = 1; $i <= 8; $i++)
+                           @if ($book->stars >= $i)
                                 <img src="../images/starfull.png" alt="">
-                            @else
+                           @else
                                 <img src="../images/star.png" alt="">
                             @endif
                         @endfor
                     </div>
                     <div class="all_books_text" style="margin-top: 8px">
-                        <a href="#comment" id="myBtn1">Kitobni baholang</a>
+                        <a href="#comment" id="myBtn1">Audio kitobni baholang</a>
                     </div>
                 </div>
                 <!-- card tugashsi -->
             </div>
 
             <div class="single_book_second_head">
-                @php
-                    $pdf = json_decode($book->content);
-                    $file = $pdf['0']->download_link;
-                 @endphp
                 <h1>{{ $book->title }}</h1>
                 <div class="single_bokks_inline_btn">
-                    <a data-fancybox data-type="iframe" href="{{ Voyager::image($file) }}"> <span style="display:inline" class="iconify" data-icon="bi:book-half" data-inline="true"></span> Online o'qish</a>
-                    <a href="{{ Voyager::image($file) }}" download><span style="display:inline" class="iconify" data-icon="entypo:download" data-inline="false"></span> Yuklab olish</a>
+                    <a href="#audio" id="myBtn2"> <span style="display:inline" class="iconify" data-icon="bi:play-fill" data-inline="false"></span> Tinglash</a>
+                    <a href="{{ Voyager::image(json_decode($book->content)[0]->download_link) }}" download><span style="display:inline" class="iconify" data-icon="entypo:download" data-inline="false"></span> Yuklab olish</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-<<<<<<< HEAD
-    <section class="container mx-auto all_books">
-=======
-    <section class="container mx-auto all_books">
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
+    <section class="all_books container mx-auto">
         <div class="single_books_rows">
 
             <div class="single_book_second">
-                <div class="single_book_info">
-                    <div class="infos">
-                        <p>Aftor: </p>
-                        <span>{{ $book->author }}</span>
+                <div class="head_audio_books_hear">
+                    <div class="single_book_info single_book_info_hear">
+                        <div class="infos">
+                            <p>Authors: </p>
+                            <span>{{ $book->author }}</span>
+                        </div>
+                        <div class="infos">
+                            <p>Year: </p>
+                            <span>{{ $book->year }}</span>
+                        </div>
                     </div>
-                    <div class="infos">
-                        <p>Chop etilgan yil: </p>
-                        <span>{{ $book->year }}</span>
-                    </div>
-                    <div class="infos">
-                        <p>Janr: </p>
-                        <span>{{ $book->category->name }}</span>
-                    </div>
+                    <div id="audio" class="head_audio_books_hear_line"></div>
 
+                    <div class="audio_hear">
+                        <div class="column add-bottom">
+                            <div id="mainwrap">
+                                <div id="nowPlay">
+                                    <span id="npTitle"></span>
+                                    <span id="npPara"></span>
+                                </div>
+                                <div id="audiowrap">
+                                    <div id="audio0">
+                                        <audio id="audio1" preload controls>Your browser does not support HTML5 Audio! 😢</audio>
+                                    </div>
+                                    <div id="tracks">
+                                        <a id="btnPrev">&larr;</a><a id="btnNext">&rarr;</a>
+                                    </div>
+                                </div>
+                                <div id="plwrap">
+                                    <ul id="plList"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-<<<<<<< HEAD
-                <div class="flex items-center gap-2 second-content-head">
-=======
-                <div class="flex items-center gap-2 second-content-head">
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
+
+
+                <div class="second-content-head flex items-center gap-2 second-content-head_hear">
                     <span class="iconify" data-icon="akar-icons:info" data-inline="false"></span>
                     <h1 class="">Kitob haqida</h1>
                 </div>
@@ -127,50 +300,10 @@
 
                 <div class="line_gradient_single_book"></div>
 
+
+
                 <div class="comment_news comment_single_book">
-<<<<<<< HEAD
-                    <h4>{{ count($comments)==0 ? "" : count($comments)}} {{ count($comments)>0 ? (count($comments)>1 ? "Comments" : "Comment") : "No Comment" }} </h4>
-                    @foreach ($comments as $comment)
-=======
                     <h4>3 Comments</h4>
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
-                    <div class="comment_news_card">
-                        <div class="comment_news_left">
-                            <div class="img_comment_news">
-                                <img src="../images/img2.png" alt="">
-                            </div>
-
-                        </div>
-                        <div class="comment_news_right">
-                            <div class="comment_news_head_text">
-<<<<<<< HEAD
-                                <h1>{{ $comment->name }}</h1>
-                                @php
-                                    $days_ago = date('d') - date('d', strtotime($comment->created_at));
-                                @endphp
-                                <p>{{ $days_ago != 0 ? $days_ago : "" }} {{ ($days_ago)==0 ? "TODAY" : (($days_ago)>1 ? "DAYS AGO" : "DAY AGO") }} </p>
-                            </div>
-                            <div class="comment_news_body_text">
-                                <p>{{ $comment->text }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    @if (count($comments) > 1 && end($comments) == $comment )
-                        <div class=comment_hr></div>
-                    @endif
-                @endforeach
-=======
-                                <h1>Prezident</h1>
-                                <p>5 DAYS AGO</p>
-                            </div>
-                            <div class="comment_news_body_text">
-                                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="comment_hr"></div>
-
                     <div class="comment_news_card">
                         <div class="comment_news_left">
                             <div class="img_comment_news">
@@ -208,17 +341,31 @@
                             </div>
                         </div>
                     </div>
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
+
+                    <div class="comment_hr"></div>
+
+                    <div class="comment_news_card">
+                        <div class="comment_news_left">
+                            <div class="img_comment_news">
+                                <img src="../images/img2.png" alt="">
+                            </div>
+
+                        </div>
+                        <div class="comment_news_right">
+                            <div class="comment_news_head_text">
+                                <h1>Prezident</h1>
+                                <p>5 DAYS AGO</p>
+                            </div>
+                            <div class="comment_news_body_text">
+                                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean.</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="comment_news_form" id="comment">
                     <h4>Comment qoldirish</h4>
-<<<<<<< HEAD
-                    <form action="{{ route('comment.store', ['id' => $book->id]) }}" method="POST">
-                        @csrf
-=======
                     <form action="">
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                         <div class="single_book_wrap">
                             <div class="single_book_wrap_inline">
                                 <div class="input_form">
@@ -229,12 +376,6 @@
                                     <label for="email">Emailingiz</label>
                                     <input type="email" name="email" required>
                                 </div>
-<<<<<<< HEAD
-                                <div class="input_form">
-                                    <input type="text" name="type" value="books" hidden>
-                                </div>
-=======
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                             </div>
 
                             <!-- Rating -->
@@ -404,170 +545,191 @@
             </div>
         </div>
 
-<<<<<<< HEAD
-        <div class="mt-10 all_books_nazm_box">
-            <div class="flex items-center justify-between second-content-head">
-                <h1 class="">O'xshash kitoblar</h1>
-                <a href="#">Barchasi</a>
-=======
-        <div class="mt-10 all_books_nazm_box">
-            <div class="flex items-center justify-between second-content-head">
-                <h1 class="">O'xshash kitoblar</h1>
-                {{--<a href="#">Barchasi</a>--}}
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
+        <div class="all_books_nazm_box mt-10">
+            <div class="second-content-head flex items-center justify-between">
+                <h1 class="">O'xshash audio kitoblar</h1>
+                <a href="{{ route('audiobooks') }}">Barchasi</a>
             </div>
             <div class="line-gradient"></div>
 
             <div class="nazm_cards">
-<<<<<<< HEAD
-                <!-- Card boshlanishi sikl uchun -->
-                <div class="all_books_card">
-                    <div class="all_books_card_box">
-                        <div class="card_box_img">
-                            <img src="../images/books1.png" alt="">
+               @foreach($otherbooks as $item)
+                    <div class="all_books_card">
+                        <div class="all_books_card_box">
+                            <div class="card_box_img">
+                                <img src="{{ Voyager::image(json_decode($item->image)[0]) }}" alt="">
+                            </div>
+                            <div class="all_books_back-line"></div>
+                            <div class="bookmark_all_books">
+                                <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                            </div>
                         </div>
-                        <div class="all_books_back-line"></div>
-                        <div class="bookmark_all_books">
-                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                        <div class="all_books_star">
+                            @for ($i = 1; $i <= 8; $i++)
+                                @if ($item->stars >= $i)
+                                    <img src="../images/starfull.png" alt="">
+                                @else
+                                    <img src="../images/star.png" alt="">
+                                @endif
+                            @endfor
                         </div>
-                    </div>
-                    <div class="all_books_star">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/star.png" alt="">
-                    </div>
-                    <div class="all_books_text" style="margin-top: 8px">
-                        <a href="">ISLOM Temuriylar tarixi davlat muzeyi durdonasi...</a>
-                    </div>
-                </div>
-
-                <!-- card tugashsi -->
-
-                <!-- Card boshlanishi sikl uchun -->
-                <div class="all_books_card">
-                    <div class="all_books_card_box">
-                        <div class="card_box_img">
-                            <img src="../images/books1.png" alt="">
-                        </div>
-                        <div class="all_books_back-line"></div>
-                        <div class="bookmark_all_books">
-                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                        <div class="all_books_text" style="margin-top: 8px">
+                            <a href="{{ route('audiobook', ['id' => $item->id]) }}">{{ $item->title }}</a>
                         </div>
                     </div>
-                    <div class="all_books_star">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/star.png" alt="">
-                    </div>
-                    <div class="all_books_text" style="margin-top: 8px">
-                        <a href="">ISLOM Temuriylar tarixi davlat muzeyi durdonasi...</a>
-                    </div>
-                </div>
-
-                <!-- card tugashsi -->
-
-                <!-- Card boshlanishi sikl uchun -->
-                <div class="all_books_card">
-                    <div class="all_books_card_box">
-                        <div class="card_box_img">
-                            <img src="../images/books1.png" alt="">
-                        </div>
-                        <div class="all_books_back-line"></div>
-                        <div class="bookmark_all_books">
-                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                        </div>
-                    </div>
-                    <div class="all_books_star">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/star.png" alt="">
-                    </div>
-                    <div class="all_books_text" style="margin-top: 8px">
-                        <a href="">ISLOM Temuriylar tarixi davlat muzeyi durdonasi...</a>
-                    </div>
-                </div>
-
-                <!-- card tugashsi -->
-
-                <!-- Card boshlanishi sikl uchun -->
-                <div class="all_books_card">
-                    <div class="all_books_card_box">
-                        <div class="card_box_img">
-                            <img src="../images/books1.png" alt="">
-                        </div>
-                        <div class="all_books_back-line"></div>
-                        <div class="bookmark_all_books">
-                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                        </div>
-                    </div>
-                    <div class="all_books_star">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/star.png" alt="">
-                    </div>
-                    <div class="all_books_text" style="margin-top: 8px">
-                        <a href="">ISLOM Temuriylar tarixi davlat muzeyi durdonasi...</a>
-                    </div>
-                </div>
-
-                <!-- card tugashsi -->
-
-                <!-- Card boshlanishi sikl uchun -->
-                <div class="all_books_card">
-                    <div class="all_books_card_box">
-                        <div class="card_box_img">
-                            <img src="../images/books1.png" alt="">
-                        </div>
-                        <div class="all_books_back-line"></div>
-                        <div class="bookmark_all_books">
-                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
-                        </div>
-                    </div>
-                    <div class="all_books_star">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/starfull.png" alt="">
-                        <img src="../images/star.png" alt="">
-                    </div>
-                    <div class="all_books_text" style="margin-top: 8px">
-                        <a href="">ISLOM Temuriylar tarixi davlat muzeyi durdonasi...</a>
-                    </div>
-                </div>
-                <!-- card tugashsi -->
-
-=======
-                <x-bookscategory category="{{ $book->category_id }}"/>
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
+               @endforeach
             </div>
 
         </div>
     </section>
 
+    <!-- Audio uchun script kodlari -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script src="http://api.html5media.info/1.1.8/html5media.min.js"></script>
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+
+    <script type="text/javascript">
+        // Mythium Archive: https://archive.org/details/mythium/
+
+        jQuery(function ($) {
+            'use strict'
+            var supportsAudio = !!document.createElement('audio').canPlayType;
+            if (supportsAudio) {
+                // initialize plyr
+                var player = new Plyr('#audio1', {
+                    controls : [
+                        'play-large', // The large play button in the center
+                        'restart', // Restart playback
+                        'rewind', // Rewind by the seek time (default 10 seconds)
+                        'play', // Play/pause playback
+                        'fast-forward', // Fast forward by the seek time (default 10 seconds)
+                        'progress', // The progress bar and scrubber for playback and buffering
+                        'current-time', // The current time of playback
+                        'duration', // The full duration of the media
+                        'mute', // Toggle mute
+                        'volume', // Volume control
+                        'captions', // Toggle captions
+                        'settings', // Settings menu
+                        'pip', // Picture-in-picture (currently Safari only)
+                        'airplay', // Airplay (currently Safari only)
+                        'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+                        'fullscreen' // Toggle fullscreen
+                    ]
+                });
+                // initialize playlist and controls
+                var index = 0,
+                    playing = false,
+                    mediaPath = '',
+                    extension = '',
+                    tracks = [{
+                        "track": 1,
+                        "name": "{{ $book->title }}",
+                        "tagname": "{{ $book->author }}",
+                        "date": "12.04.2021",
+                        "file": "{{ Voyager::image(json_decode($book->content)[0]->download_link) }}"
+                    }],
+                    buildPlaylist = $.each(tracks, function(key, value) {
+                        var trackNumber = value.track,
+                            trackName = value.name,
+                            tracktagName = value.tagname,
+                            trackDuration = value.date;
+                        if (trackNumber.toString().length === 1) {
+                            trackNumber = '0' + trackNumber;
+                        }
+                        $('#plList').append('<li> \
+                <div class="plItem"> \
+                    <div class="names"> \
+                        <span class="plTitle">' + trackName + '</span> \
+                        <span class="pltagname">' + tracktagName + '</span> \
+                    </div> \
+                    <span class="plLength">' + trackDuration + '</span> \
+                </div> \
+            </li>');
+                    }),
+                    trackCount = tracks.length,
+                    npAction = $('#npAction'),
+                    npTitle = $('#npTitle'),
+                    npPara = $('#npPara'),
+                    audio = $('#audio1').on('play', function () {
+                        playing = true;
+                        npAction.text('Now Playing...');
+                    }).on('pause', function () {
+                        playing = false;
+                        npAction.text('Paused...');
+                    }).on('ended', function () {
+                        npAction.text('Paused...');
+                        if ((index + 1) < trackCount) {
+                            index++;
+                            loadTrack(index);
+                            audio.play();
+                        } else {
+                            audio.pause();
+                            index = 0;
+                            loadTrack(index);
+                        }
+                    }).get(0),
+                    btnPrev = $('#btnPrev').on('click', function () {
+                        if ((index - 1) > -1) {
+                            index--;
+                            loadTrack(index);
+                            if (playing) {
+                                audio.play();
+                            }
+                        } else {
+                            audio.pause();
+                            index = 0;
+                            loadTrack(index);
+                        }
+                    }),
+                    btnNext = $('#btnNext').on('click', function () {
+                        if ((index + 1) < trackCount) {
+                            index++;
+                            loadTrack(index);
+                            if (playing) {
+                                audio.play();
+                            }
+                        } else {
+                            audio.pause();
+                            index = 0;
+                            loadTrack(index);
+                        }
+                    }),
+                    li = $('#plList li').on('click', function () {
+                        var id = parseInt($(this).index());
+                        if (id !== index) {
+                            playTrack(id);
+                        }
+                    }),
+                    loadTrack = function (id) {
+                        $('.plSel').removeClass('plSel');
+                        $('#plList li:eq(' + id + ')').addClass('plSel');
+                        npTitle.text(tracks[id].name );
+                        npPara.text( tracks[id].tagname);
+                        index = id;
+                        audio.src = mediaPath + tracks[id].file;
+                        updateDownload(id, audio.src);
+                    },
+                    updateDownload = function (id, source) {
+                        player.on('loadedmetadata', function () {
+                            $('a[data-plyr="download"]').attr('href', source);
+                        });
+                    },
+                    playTrack = function (id) {
+                        loadTrack(id);
+                        audio.play();
+                    };
+                extension = audio.canPlayType('audio/mpeg') ? '.mp3' : audio.canPlayType('audio/ogg') ? '.ogg' : '';
+                loadTrack(index);
+            } else {
+                // no audio support
+                $('.column').addClass('hidden');
+                var noSupport = $('#audio1').text();
+                $('.container').append('<p class="no-support">' + noSupport + '</p>');
+            }
+        });
+
+    </script>
 
 
 @endsection

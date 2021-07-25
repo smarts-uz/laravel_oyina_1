@@ -16,6 +16,7 @@ class news extends Component
     public function __construct($limit)
     {
         $this->news = Post::query()->orderBy('id', 'desc')
+            ->where('lang', '=', app()->getLocale())
             ->limit($limit)->get();
     }
 

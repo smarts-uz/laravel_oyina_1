@@ -1,36 +1,35 @@
 @extends('site.layouts.app')
 
 @section('content')
-    <section class="contact container mx-auto">
+    <section class="container mx-auto contact">
         <h1>Iltimos, bog'laning va bizning mutaxassislarni qo'llab-quvvatlash guruhimiz barcha savollaringizga javob beradi.</h1>
 
         <div class="contact_row">
             <div class="contact_card_one">
-                <form action="{{ route('contactMessage') }}" method="POST">
-                    @csrf
+                <form>
                     <div class="form_group">
 
-                        <input class="require" type="text" name="fullname" required="" placeholder="Ism Familiya *">
+                        <input class="require" type="text" name="" required="" placeholder="Ism Familiya *">
                     </div>
 
                     <div class="form_group">
-                        <input class="require" type="email" name="email" required="" placeholder="Email *">
+                        <input class="require" type="email" name="" required="" placeholder="Email *">
                     </div>
 
                     <div class="form_group">
-                        <input class="require" type="text" name="phone" required="" placeholder="Telefon *">
+                        <input class="require" type="text" name="" required="" placeholder="Telefon *">
                     </div>
 
                     <div class="form_group">
-                        <input type="text" name="company" placeholder="Kompaniya">
+                        <input type="text" name="" placeholder="Kompaniya">
                     </div>
 
                     <div class="form_group">
-                        <textarea name="message" placeholder="Sizning xabaringiz..."></textarea>
+                        <textarea placeholder="Sizning xabaringiz..."></textarea>
                     </div>
 
                     <div class="contact_button">
-                        <input type="submit" value="Jo'natish">
+                        <input type="submit" name="" value="Jo'natish">
 
                     </div>
                     <span> <span class="iconify" data-icon="ant-design:lock-filled" data-inline="false"></span> Biz sizning ma’lumotingizni havfsiz saqlaymiz</span>

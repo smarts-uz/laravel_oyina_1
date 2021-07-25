@@ -180,7 +180,7 @@
 </style>
 @section('content')
     <div class="mediateka_category" style="background: #EFFFF5;" id="filtercontainer">
-        <div class="splide mediateka_splide container mx-auto flex justify-between">
+        <div class="container flex justify-between mx-auto splide mediateka_splide">
             <div class="splide__track" style="order: 1;">
                 <ul class="splide__list">
                     <li class="splide__slide "><a class="button active">Barchasi</a></li>
@@ -196,17 +196,17 @@
     </div>
 
     @foreach($categories as $category)
-        <div class="category-news container mx-auto my-8 main_document">
-            <div class="section-two-content-one-head flex items-center justify-between">
+        <div class="container mx-auto my-8 category-news main_document">
+            <div class="flex items-center justify-between section-two-content-one-head">
                 <h1 class="">{{ $category->name }}</h1>
                 <a href="{{ route('documentCategory', ['category_slug' => $category->slug]) }}">Barchasi</a>
             </div>
             <div class="line-gradient-two"></div>
-            <div class="category-news-content flex">
+            <div class="flex category-news-content">
                 <div class="section-three-cards documents_card">
                     <x-documentcategory :category="$category->id"/>
                     {{--@foreach($documents as $document)
-                        <a data-fancybox data-type="iframe" href="../pdf/a.pdf"  class="cards-flag flex flex-row justify-center items-center align-middle">
+                        <a data-fancybox data-type="iframe" href="../pdf/a.pdf"  class="flex flex-row items-center justify-center align-middle cards-flag">
                             <div class="gerb-img">
                                 <img src="./images/gerb.png" alt="Gerb">
                             </div>

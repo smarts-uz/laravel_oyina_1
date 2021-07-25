@@ -16,6 +16,7 @@ class heard extends Component
     public function __construct()
     {
         $this->news = Post::query()->orderBy('id', 'desc')
+            ->where('lang', '=', app()->getLocale())
             ->where('type', '=', 'option3')->limit(4)->get();
     }
 

@@ -1,5 +1,9 @@
 lightGallery(document.getElementById('video-gallery_main'), {
     videojs: true,
+    loadYoutubeThumbnail: true,
+    youtubeThumbSize: 'default',
+    loadVimeoThumbnail: true,
+    vimeoThumbSize: 'thumbnail_medium',
 });
 
 

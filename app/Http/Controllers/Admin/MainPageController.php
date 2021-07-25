@@ -24,6 +24,7 @@ use App\Models\Admin\Audio;
 use App\Models\Admin\DocumentCategory;
 use Exception;
 use App\Models\Comment;
+use App\Models\Admin\Audiobook;
 
 class MainPageController extends Controller
 {
@@ -37,6 +38,8 @@ class MainPageController extends Controller
 
     public function singlePost(Post $post)
     {
+        $post->views = $post->views + 1;
+        $post->save();
         return view('site.news.single-news', ['post' => $post]);
     }
 
@@ -47,6 +50,7 @@ class MainPageController extends Controller
             ->where('slug', '=', $category_slug)->first();
         $post = Post::query()
             ->orderBy('id', 'desc')
+            ->where('lang', '=', app()->getLocale())
             ->where('category_id', '=', $category->id)->paginate(20);
 
         return view('site.news.category-news', ['post' => $post, 'category' => $category]);
@@ -56,13 +60,21 @@ class MainPageController extends Controller
     public function postType($id)
     {
         if ($id == 1) {
-            $post = Post::query()->where('type', '=', 'option2')->paginate(20);
+            $post = Post::query()
+                ->where('lang', '=', app()->getLocale())
+                ->where('type', '=', 'option2')->paginate(20);
         } elseif ($id == 2){
-            $post = Post::query()->where('type', '=', 'option3')->paginate(20);
+            $post = Post::query()
+                ->where('lang', '=', app()->getLocale())
+                ->where('type', '=', 'option3')->paginate(20);
         } elseif ($id == 3){
-            $post = Post::query()->orderBy('id', 'desc')->paginate(20);
+            $post = Post::query()
+                ->where('lang', '=', app()->getLocale())
+                ->orderBy('id', 'desc')->paginate(20);
         } elseif ($id == 4){
-            $post = Post::query()->orderBy('views', 'desc')->paginate(20);
+            $post = Post::query()
+                ->where('lang', '=', app()->getLocale())
+                ->orderBy('views', 'desc')->paginate(20);
         }
 
         return view('site.news.type-news', ['post' => $post, 'type' => $id]);
@@ -91,6 +103,7 @@ class MainPageController extends Controller
         $category = ArticleCategory::query()
             ->where('slug', '=', $category_slug)->first();
         $articles = Article::query()->orderBy('id', 'desc')
+            ->where('lang', '=', app()->getLocale())
             ->where('category_id', '=', $category->id)->paginate(20);
 
         return view('site.articles.category-article', compact('category', 'articles'));
@@ -147,6 +160,7 @@ class MainPageController extends Controller
         $generation = Generation::query()->find($id);
 
         return view('site.generations.generation')->with(compact('generation'))->with(compact('comments'));
+
     }
 
 
@@ -156,7 +170,10 @@ class MainPageController extends Controller
     public function libary()
     {
         $categories = PublicationCategory::query()->get();
-        return view('site.books.index', compact('categories'));
+        $audiobooks = Audiobook::query()
+            ->where('lang', '=', app()->getLocale())
+            ->orderBy('id', 'desc')->limit(10)->get();
+        return view('site.books.index', compact('categories', 'audiobooks'));
     }
 
     public function singleBook($id)
@@ -177,28 +194,52 @@ class MainPageController extends Controller
     }
 
 
+    public function audiobooks()
+    {
+        $books = Audiobook::query()->orderBy('id', 'desc')->paginate(15);
+        return view('site.books.audiobooks', compact('books'));
+    }
+
+    public function audiobook($id)
+    {
+        $book = Audiobook::query()->find($id);
+        $otherbooks = Audiobook::query()->orderBy('id', 'desc')->limit(5)->get();
+        return view('site.books.audiobook', compact('book', 'otherbooks'));
+    }
 
 
     // Multimedia routes
     public function multimedia() {
-        $photos = Image::query()->orderBy('id', 'desc')->limit(4)->get();
-        $videos = Video::query()->orderBy('id', 'desc')->limit(4)->get();
-        $audios = Audio::query()->orderBy('id', 'desc')->limit(6)->get();
+        $photos = Image::query()
+            ->where('lang', '=', app()->getLocale())
+            ->orderBy('id', 'desc')->limit(4)->get();
+        $videos = Video::query()
+            ->where('lang', '=', app()->getLocale())
+            ->orderBy('id', 'desc')->limit(4)->get();
+        $audios = Audio::query()
+            ->where('lang', '=', app()->getLocale())
+            ->orderBy('id', 'desc')->limit(6)->get();
         return view('site.multimedia.index', compact('photos', 'videos', 'audios'));
     }
 
     public function photo(){
-        $photos = Image::query()->orderBy('id', 'desc')->paginate(12);
+        $photos = Image::query()
+            ->where('lang', '=', app()->getLocale())
+            ->orderBy('id', 'desc')->paginate(12);
         return view('site.multimedia.allphoto', compact('photos'));
     }
 
     public function video(){
-        $videos = Video::query()->orderBy('id', 'desc')->paginate(12);
+        $videos = Video::query()
+            ->where('lang', '=', app()->getLocale())
+            ->orderBy('id', 'desc')->paginate(12);
         return view('site.multimedia.allvideo', compact('videos'));
     }
 
     public function audio(){
-        $audios = Audio::query()->orderBy('id', 'desc')->paginate(9);
+        $audios = Audio::query()
+            ->where('lang', '=', app()->getLocale())
+            ->orderBy('id', 'desc')->paginate(9);
         return view('site.multimedia.allaudio', compact('audios'));
     }
 
@@ -244,7 +285,7 @@ class MainPageController extends Controller
 
 
 
-// Teahause Routes
+    // Teahause Routes
     public function teahauses()
     {
         $categories = FunnyCategory::query()->get();
@@ -266,8 +307,6 @@ class MainPageController extends Controller
 
         return view('site.teahause.category-teahause', compact('category', 'articles'));
     }
-
-
 
 }
 

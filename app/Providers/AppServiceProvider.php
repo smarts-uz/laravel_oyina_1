@@ -32,6 +32,10 @@ use App\View\Components\site\announcement;
 use App\View\Components\site\teahausecategory;
 use App\View\Components\site\documentcategory;
 use App\View\Components\site\articlesidebar;
+
+use App\View\Components\site\teahausesidebar;
+use App\View\Components\site\generationsidebar;
+use App\View\Components\site\interviewsidebar;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use TCG\Voyager\Facades\Voyager;
@@ -86,5 +90,11 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('teahausecategory', teahausecategory::class);
         Blade::component('documentcategory', documentcategory::class);
         Blade::component('articlesidebar', articlesidebar::class);
+<<<<<<< HEAD
+=======
+        Blade::component('teahausesidebar', teahausesidebar::class);
+        Blade::component('generationsidebar', generationsidebar::class);
+        Blade::component('interviewsidebar', interviewsidebar::class);
+>>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
     }
 }

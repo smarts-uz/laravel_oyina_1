@@ -101,19 +101,24 @@
         .names{
                 display: flex;
                 flex-direction: column;
+               width: 60%;
+                white-space: nowrap;
+                overflow: hidden;
 
         }
 
         .plTitle {
-                text-overflow:ellipsis;
-                white-space:nowrap;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 font-family: Roboto;
                 font-style: normal;
                 font-weight: 500;
                 font-size: 20px;
                 line-height: 1.1;
                 /* identical to box height */
-
+                width: 100%;
                 letter-spacing: 0.02em;
 
                 color: #8090AD;
@@ -136,6 +141,9 @@
                 font-weight: normal;
                 font-size: 15px;
                 line-height: 28px;
+                width: 40%;
+                display: flex;
+                justify-content: flex-end;
 
                 color: #8090AD;
         }
@@ -406,9 +414,9 @@
         }
 </style>
 
-<div class="article-content-two-head-text flex items-center justify-between">
+<div class="flex items-center justify-between article-content-two-head-text">
         <h1 class="">@lang('site.content_menus.audio_books')</h1>
-        <a href="#">@lang('site.navbar.all')</a>
+        <a href="{{ route('audiobooks') }}">@lang('site.navbar.all')</a>
 </div>
 <div class="line-gradient-audio"></div>
 
@@ -472,45 +480,19 @@ if (supportsAudio) {
 // initialize playlist and controls
    var index = 0,
 playing = false,
-          mediaPath = '../audios/',
+          mediaPath = '',
 extension = '',
-tracks = [{
+tracks = [
+      @foreach($audiobooks as $book)
+        {
          "track": 1,
-         "name": "Muhabbat",
-         "tagname": "Abdulla Qahhor",
+         "name": "{{ $book->title }}",
+         "tagname": "{{ $book->author }}",
          "date": "12.04.2021",
-         "file": "a"
-         }, {
-"track": 2,
-"name": "O’tmishdan ertaklar",
-"tagname": "Abdulla Qahhor",
-"date": "12.04.2021",
-"file": "1"
-},{
-"track": 3,
-"name": "O’tmishdan ertaklar",
-"tagname": "Abdulla Qahhor",
-"date": "12.04.2021",
-"file": "a"
-}, {
-"track": 4,
-"name": "O’tmishdan ertaklar",
-"tagname": "Abdulla Qahhor",
-"date": "12.04.2021",
-"file": "1"
-}, {
-"track": 5,
-"name": "O’tmishdan ertaklar",
-"tagname": "Abdulla Qahhor",
-"date": "12.04.2021",
-"file": "1"
-}, {
-"track": 5,
-"name": "O’tmishdan ertaklar",
-"tagname": "Abdulla Qahhor",
-"date": "12.04.2021",
-"file": "1"
-}],
+         "file": "{{ Voyager::image(json_decode($book->content)[0]->download_link) }}"
+         },
+      @endforeach
+],
 buildPlaylist = $.each(tracks, function(key, value) {
         var trackNumber = value.track,
         trackName = value.name,
@@ -589,7 +571,7 @@ loadTrack = function (id) {
         npTitle.text(tracks[id].name );
         npPara.text( tracks[id].tagname);
         index = id;
-        audio.src = mediaPath + tracks[id].file + extension;
+        audio.src = mediaPath + tracks[id].file;
 updateDownload(id, audio.src);
 },
 updateDownload = function (id, source) {
@@ -601,7 +583,6 @@ playTrack = function (id) {
 loadTrack(id);
         audio.play();
 };
-extension = audio.canPlayType('audio/mpeg') ? '.mp3' : audio.canPlayType('audio/ogg') ? '.ogg' : '';
 loadTrack(index);
 } else {
   // no audio support

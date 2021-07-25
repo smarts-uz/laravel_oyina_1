@@ -1,8 +1,8 @@
 {{-- Allomalar haqida section --}}
 <section class="relevance">
 
-    <div class="container mx-auto flex items-center align-middle justify-between">
-      <div id="filters-relevance" class="filters-relevance flex">
+    <div class="container flex items-center justify-between mx-auto align-middle">
+      <div id="filters-relevance" class="flex filters-relevance">
         <button class="filter-option-relevance " data-filter="day" onclick=filterrelevance(event)>@lang('site.content_menus.rel_day')<div class="div-bootom-line-relevance"></div></button>
         <button class="filter-option-relevance"  data-filter="week" onclick=filterrelevance(event)>@lang('site.content_menus.rel_week') <div class="div-bootom-line-relevance"></div></button>
         <button class="filter-option-relevance active-4"  data-filter="month" onclick=filterrelevance(event)>@lang('site.content_menus.rel_month') <div class="div-bootom-line-relevance"></div></button>
@@ -10,7 +10,7 @@
       <a href="{{ route('news') }}" class="all-relevance">@lang('site.navbar.all')</a>
     </div>
     <div class="flex flex-row items-center align-middle">
-        {{--<div class="transform">@lang('site.content_menus.current')</div>--}}
+        <div class="transform">@lang('site.content_menus.current')</div>
             <div class="swiper-container relevance-slide">
                 <div class="swiper-wrapper">
 
@@ -21,12 +21,12 @@
 
                             <div class="rel-image">
                                 <img src="{{ Voyager::image($item->thumbnail('medium', 'image')) }}" alt="">
-                                <div class="bookmark-rel flex justify-center items-center absolute">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                                <div class="absolute flex items-center justify-center bookmark-rel">
+                                    <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                                 </div>
-                                <p class="text-white flex items-center absolute"><span class="iconify text-white" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span> {{ $item->category->name }}</p>
+                                <p class="absolute flex items-center text-white"><span class="text-white iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span> {{ $item->category->name }}</p>
                             </div>
-                            <div class="rel-date flex items-center justify-between">
+                            <div class="flex items-center justify-between rel-date">
                                 <span class="flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> {{ \Carbon\Carbon::parse($item->created_at)->format('H:m / d.m.Y') }}</span>
                                 <div class="flex items-center">
                                     <span class="flex items-center"><span class="iconify" data-icon="mdi:eye" data-inline="false"></span> {{ $item->views }}</span>
@@ -43,16 +43,16 @@
                      {{-- Hafta davomida --}}
 
                     @foreach ($relevance_week as $item)
-                        <div class="swiper-slide week hidden">
+                        <div class="hidden swiper-slide week">
 
                             <div class="rel-image">
                                 <img src="{{ Voyager::image($item->thumbnail('medium', 'image')) }}" alt="">
-                                <div class="bookmark-rel flex justify-center items-center absolute">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                                <div class="absolute flex items-center justify-center bookmark-rel">
+                                    <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                                 </div>
-                                <p class="text-white flex items-center absolute"><span class="iconify text-white" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span> {{ $item->category->name }}</p>
+                                <p class="absolute flex items-center text-white"><span class="text-white iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span> {{ $item->category->name }}</p>
                             </div>
-                            <div class="rel-date flex items-center justify-between">
+                            <div class="flex items-center justify-between rel-date">
                                 <span class="flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span>{{ \Carbon\Carbon::parse($item->created_at)->format('H:m / d.m.Y') }}</span>
                                 <div class="flex items-center">
                                     <span class="flex items-center"><span class="iconify" data-icon="mdi:eye" data-inline="false"></span> {{ $item->views }}</span>
@@ -65,16 +65,16 @@
 
                     {{-- Kun davomida --}}
                     @foreach ($relevance_day as $item)
-                        <div class="swiper-slide day hidden">
+                        <div class="hidden swiper-slide day">
 
                             <div class="rel-image">
                                 <img src="{{ Voyager::image($item->thumbnail('medium', 'image')) }}" alt="">
-                                <div class="bookmark-rel flex justify-center items-center absolute">
-                                    <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                                <div class="absolute flex items-center justify-center bookmark-rel">
+                                    <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                                 </div>
-                                <p class="text-white flex items-center absolute"><span class="iconify text-white" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span> {{ $item->category->name }}</p>
+                                <p class="absolute flex items-center text-white"><span class="text-white iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span> {{ $item->category->name }}</p>
                             </div>
-                            <div class="rel-date flex items-center justify-between">
+                            <div class="flex items-center justify-between rel-date">
                                 <span class="flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span>{{ \Carbon\Carbon::parse($item->created_at)->format('H:m / d.m.Y') }}</span>
                                 <div class="flex items-center">
                                     <span class="flex items-center"><span class="iconify" data-icon="mdi:eye" data-inline="false"></span> {{ $item->views }}</span>

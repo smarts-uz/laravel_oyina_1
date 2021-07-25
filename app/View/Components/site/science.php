@@ -19,6 +19,7 @@ class science extends Component
         $category = Category::query()->firstWhere('slug', '=', 'ilm-fan');
         $this->news = Post::query()
             ->where('category_id', '=', $category->id)
+            ->where('lang', '=', app()->getLocale())
             ->orderBy('id', 'desc')
             ->limit(4)->get();
     }

@@ -18,6 +18,7 @@ class usefullink extends Component
     {
         $this->usefuls = Useful::query()
             ->orderBy('id', 'desc')
+            ->where('lang', '=', app()->getLocale())
             ->limit(8)->get();
     }
 

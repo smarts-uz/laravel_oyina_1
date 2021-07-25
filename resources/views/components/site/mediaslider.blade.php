@@ -171,17 +171,20 @@
 
         }
     }
+    .splide__arrow{
+        display: none;
+    }
 </style>
 <section class="media">
 
-    <div class="container mx-auto flex items-center justify-between">
-        <div id="filters-media" class="filters-media flex">
+    <div class="container flex items-center justify-between mx-auto">
+        <div id="filters-media" class="flex filters-media">
           <button class="filter-option active-1" data-filter="video" onclick=filtervidfoto(event)>@lang('site.content_menus.video') <div class="div-bootom-line"></div></button>
           <button class="filter-option"  data-filter="foto" onclick=filtervidfoto(event)>@lang('site.content_menus.foto') <div class="div-bootom-line"></div></button>
         </div>
         <a href="{{ route('multimedia') }}" class="all-media">@lang('site.navbar.all')</a>
     </div>
-    <div class="media_filter_container flex flex-row items-center">
+    <div class="flex flex-row items-center media_filter_container">
         <div class="transform">MEDIA</div>
       <div class="swiper-container mediaswipe video">
 
@@ -210,7 +213,7 @@
                   </svg>
                 </div>
               </a>
-              <div class="media-date flex items-center">
+              <div class="flex items-center media-date">
                 <span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span>
                 <span>{{ \Carbon\Carbon::parse($item->created_at)->format('d.m.Y | H:m') }}</span>
               </div>
@@ -221,7 +224,7 @@
         </div>
       </div>
 
-            <div class="swiper-container splide fotoswipe foto hidden" id="splidefoto">
+            <div class="hidden swiper-container splide fotoswipe foto" id="splidefoto">
                 <div class="splide__track">
                     <div class="splide__list">
                     @foreach($photos as $key => $photo)
@@ -229,12 +232,12 @@
                           @php $images = json_decode($photo->content); @endphp
                           @foreach($images as $image)
                               @if ($loop->first)
-                                <a href="{{ Voyager::image($image) }}" data-fancybox="img{{ $key + 1 }}" data-caption="{{ $photo->title }} <span>{{ \Carbon\Carbon::parse($photo->created_at)->format('H:m / d.m.Y') }}</span>" class="relative link-img-video block photos boxItem">
+                                <a href="{{ Voyager::image($image) }}" data-fancybox="img{{ $key + 1 }}" data-caption="{{ $photo->title }} <span>{{ \Carbon\Carbon::parse($photo->created_at)->format('H:m / d.m.Y') }}</span>" class="relative block link-img-video photos boxItem">
                                   <img src="{{ Voyager::image($image) }}" alt="">
                                 </a>
                               @endif
                           @endforeach
-                          <div class="media-date flex items-center">
+                          <div class="flex items-center media-date">
                               <span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span>
                               <span>{{ \Carbon\Carbon::parse($photo->created_at)->format('H:m / d.m.Y') }}</span>
                           </div>
@@ -244,7 +247,7 @@
                             <!-- data-fancybox="img1" ga tegishli rasmlar galeriyasi Data caption tepadagi bilan bir xil boladi  -->
                       <div style="display:none;">
                           @foreach($images as $image)
-                              <a style="display: none;" class="boxItem relative link-img-video block photos" href="{{ Voyager::image($image) }}" data-fancybox="img{{ $key + 1 }}" data-caption="{{ $photo->title }} <span>{{ \Carbon\Carbon::parse($photo->created_at)->format('H:m / d.m.Y') }}</span>">
+                              <a style="display: none;" class="relative block boxItem link-img-video photos" href="{{ Voyager::image($image) }}" data-fancybox="img{{ $key + 1 }}" data-caption="{{ $photo->title }} <span>{{ \Carbon\Carbon::parse($photo->created_at)->format('H:m / d.m.Y') }}</span>">
                                   <img src="{{ Voyager::image($image) }}" alt="">
                               </a>
                           @endforeach

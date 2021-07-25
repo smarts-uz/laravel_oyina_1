@@ -255,6 +255,119 @@
             h2 {
                 font-size: 50px !important; } }
 
+
+        .socila_login_page{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 2rem;
+            position: absolute;
+            top: 20%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+        }
+        .socila_login_page a:hover .iconify{
+            color: black;
+        }
+        .socila_login_page .iconify{
+            font-size: 2rem;
+        }
+        .socila_login_page .ic1{
+            color: #3b5998;
+        }
+        .socila_login_page .ic2{
+            color: #0088CC;
+        }
+        .socila_login_page .ic3{
+            color: #db4a39;
+        }
+        .login-form{
+            top: 60% !important;
+        }
+        .logon_head_text{
+            font-size: 1em;
+            color: #1EB980;
+            font-family: Roboto;
+            position: absolute;
+            top: 10%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+
+        }
+        .seperator{
+            position: absolute;
+            top: 35%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            color: #bbbbbb;
+            font-family: Roboto;
+            background-color: #fff;
+            border: 1px solid #bbbbbb;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .line_login{
+            position: absolute;
+            top: 35%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 1px;
+            background-color: #bbbbbb;
+        }
+
+        @media(max-width:  768px){
+            .seperator{
+                position: absolute;
+                top: 35%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #bbbbbb;
+                font-family: Roboto;
+                background-color: #fff;
+                border: 1px solid #bbbbbb;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+            }
+            .line_login{
+                position: absolute;
+                top: 35%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: 1px;
+                background-color: #bbbbbb;
+            }
+            .logon_head_text{
+                font-size: 1em;
+                color: #1EB980;
+                font-family: Roboto;
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+            }
+            .socila_login_page{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                column-gap: 2rem;
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
     </style>
 
 </head>
@@ -286,6 +399,14 @@
 
                     <!-- Login Form -->
                     <div class="login form-peice switched">
+                        <h1 class="logon_head_text">Login with Social Media</h1>
+                        <div class="socila_login_page">
+                            <a href=""><span class="iconify ic1" data-icon="akar-icons:facebook-fill" data-inline="false"></span></a>
+                            <a href=""><span class="iconify ic2" data-icon="akar-icons:telegram-fill" data-inline="false"></span></a>
+                            <a href=""><span class="iconify ic3" data-icon="fa-brands:google-plus" data-inline="false"></span></a>
+                        </div>
+                        <div class="line_login"></div>
+                        <div class="seperator"><b>or</b></div>
                         <form class="login-form" action="#" method="post">
                             <div class="form-group">
                                 <label for="loginemail">Email Adderss</label>
@@ -356,6 +477,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
 <script type="text/javascript">
     /*global $, document, window, setTimeout, navigator, console, location*/

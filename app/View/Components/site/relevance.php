@@ -18,11 +18,22 @@ class relevance extends Component
      */
     public function __construct()
     {
-        $this->relevance_day = Post::query()->orderBy('views', 'desc')->orderBy('views', 'desc')->whereDate('created_at', Carbon::today())->get();
-        $this->relevance_week = Post::query()->orderBy('views', 'desc')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        $this->relevance_month = Post::whereMonth(
-            'created_at', '=', Carbon::now()->subMonth()->month
-        );
+        $this->relevance_day = Post::query()
+            ->orderBy('views', 'desc')
+            ->whereBetween('created_at', [Carbon::now()->startOfDay(), Carbon::now()->endOfDay()])
+            ->where('lang', '=', app()->getLocale())
+            ->limit(5)->get();
+        $this->relevance_week = Post::query()
+            ->orderBy('views', 'desc')
+            ->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+            ->where('lang', '=', app()->getLocale())
+            ->limit(5)->get();
+        $this->relevance_month = Post::query()
+            ->orderBy('views', 'desc')
+            ->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+            ->where('lang', '=', app()->getLocale())
+            ->limit(5)->get();
+>>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
     }
 
     /**

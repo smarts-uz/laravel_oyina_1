@@ -4,22 +4,22 @@
 @section('content')
 
     <div class="mediateka_category" style="background: #EFFFF5;" id="filtercontainer">
-        <div class="splide mediateka_splide container mx-auto flex justify-between">
+        <div class="container flex justify-between mx-auto splide mediateka_splide">
             <div class="splide__track" style="order: 1;">
                 <ul class="splide__list">
                     <li class="splide__slide "><a href="{{ route('multimedia') }}" class="button active">Barchasi</a></li>
                     <li class="splide__slide"><a href="{{ route('photo') }}" class="button">Foto</a></li>
                     <li class="splide__slide"><a href="{{ route('video') }}" class="button">Video</a></li>
-                    <li class="splide__slide"><a href="#" class="button">Audio</a></li>
+                    <li class="splide__slide"><a href="{{ route('audio') }}" class="button">Audio</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <section class="mediateka container mx-auto">
+    <section class="container mx-auto mediateka">
 <!-- media Audiolar -->
 
         <div class="mediateka_interview">
-            <div class="second-content-head flex items-center justify-between">
+            <div class="flex items-center justify-between second-content-head">
                 <h1 class="">Audiolar</h1>
             </div>
             <div class="line-gradient"></div>

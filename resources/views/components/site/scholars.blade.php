@@ -1,8 +1,8 @@
 {{-- Allomalar haqida section --}}
 <section class="scholars">
 
-    <div class="container mx-auto flex items-center align-middle justify-between">
-      <div id="filters-scholars" class="filters-scholars flex">
+    <div class="container flex items-center justify-between mx-auto align-middle">
+      <div id="filters-scholars" class="flex filters-scholars">
         <button class="filter-option-scholars active-2" data-filter="ancestor" onclick=filterscholars(event)>@lang('site.content_menus.our_gen') <div class="div-bootom-line-scholars"></div></button>
         <button class="filter-option-scholars"  data-filter="hero" onclick=filterscholars(event)>@lang('site.content_menus.our_hero') <div class="div-bootom-line-scholars"></div></button>
       </div>
@@ -12,9 +12,8 @@
       <div class="transform">@lang('site.content_menus.heroes_life')</div>
       <div class="swiper-container mySwiper">
         <div class="swiper-wrapper">
-            @foreach ($generations as $item)
+            @foreach ($generations1 as $item)
 
-            @if ($item->type == 'option1')
               <div class="swiper-slide ancestor">
                 <a href="{{ route('generation', ['id' => $item->id]) }}">
                   <div class="scholars-img">
@@ -32,17 +31,17 @@
                     </div>
                   </a>
                 </div>
-            @endif
+            @endforeach
 
-            @if ($item->type == 'option2')
+            @foreach($generations2 as $gen)
 
             {{-- Zomonamiz qahramonlar --}}
 
-              <div class="swiper-slide hero hidden">
-                <a href="{{ route('generation', ['id' => $item->id]) }}">
+              <div class="hidden swiper-slide hero">
+                <a href="{{ route('generation', ['id' => $gen->id]) }}">
                   <div class="scholars-img">
                   @php
-                    $images = json_decode($item->image);
+                    $images = json_decode($gen->image);
                   @endphp
                   @foreach ($images as $i)
                     @if($loop->first)
@@ -51,12 +50,11 @@
                   @endforeach
                   </div>
                   <div class="cholars-text">
-                    <p>{{ $item->fio }}</p>
+                    <p>{{ $gen->fio }}</p>
                   </div>
                 </a>
               </div>
 
-            @endif
             @endforeach
 
         </div>

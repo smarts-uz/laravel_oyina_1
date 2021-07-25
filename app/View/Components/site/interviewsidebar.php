@@ -2,23 +2,23 @@
 
 namespace App\View\Components\site;
 
-use App\Models\Admin\Post;
+use App\Models\Admin\Talk;
 use Illuminate\View\Component;
 
-class morereading extends Component
+class interviewsidebar extends Component
 {
     public $news;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
-        $this->news = Post::query()
-            ->orderBy('views', 'desc')
-            ->where('lang', '=', app()->getLocale())
-            ->limit(4)->get();
+        $this->news = Talk::query()->orderBy('id', 'desc')
+            ->where('id', '!=', $id)
+            ->limit(6)->get();
     }
 
     /**
@@ -28,6 +28,6 @@ class morereading extends Component
      */
     public function render()
     {
-        return view('components.site.morereading');
+        return view('components.site.interviewsidebar');
     }
 }
