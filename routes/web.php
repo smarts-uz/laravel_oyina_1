@@ -8,6 +8,7 @@ use App\Models\Admin\Document;
 use App\Models\Admin\Article;
 use App\Http\Controllers\Admin\MainPageController;
 use App\Http\Controllers\Admin\VoyagerContactController;
+use App\Http\Controllers\ReviewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +108,8 @@ Route::get('/teahauses', [MainPageController::class, 'teahauses'])->name('teahau
 Route::get('/teahause/{id}',  [MainPageController::class, 'teahause'])->name('teahause');
 Route::get('/teahauses/{category_slug}', [MainPageController::class, 'teahauseCategory'])->name('teahauseCategory');
 
+//comment
+Route::post('/book/{id}/comment/store', [ReviewsController::class, 'store'])->name('comment.store');
 
 // Voyager admin routes
 Route::group(['prefix' => 'admin'], function () {

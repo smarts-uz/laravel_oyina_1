@@ -4,7 +4,7 @@
 
     <section>
         <x-category/>
-        <div class="section-one-content single-news container mx-auto">
+        <div class="container mx-auto section-one-content single-news">
             <!-- Asosiy yangilik -->
             <div class="news_body_main">
                 <div class="single-news-headtext">
@@ -17,14 +17,14 @@
                             <img class="" src="{{ Voyager::image($image) }}" alt="">
                         @endif
                     @endforeach
-                    <div class="bookmark flex justify-center items-center">
-                        <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                    <div class="flex items-center justify-center bookmark">
+                        <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                     </div>
 
-                    <p class="text-white"><span class="iconify text-white" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>{{ $article->category->name }}</p>
+                    <p class="text-white"><span class="text-white iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>{{ $article->category->name }}</p>
                     <div class="text-content">
 
-                        <div class="statics flex items-center gap-x-8 my-4" >
+                        <div class="flex items-center my-4 statics gap-x-8" >
                             <span class="flex items-center gap-x-2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> {{ \Carbon\Carbon::parse($article->created_at)->format('H:m / d.m.Y') }}</span>
                             <span class="flex items-center gap-x-2"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
                         </div>
@@ -37,47 +37,8 @@
                 </div>
 
                 <div class="comment_news">
-                    <h4>3 Comments</h4>
-                    <div class="comment_news_card">
-                        <div class="comment_news_left">
-                            <div class="img_comment_news">
-                                <img src="../images/img2.png" alt="">
-                            </div>
-
-                        </div>
-                        <div class="comment_news_right">
-                            <div class="comment_news_head_text">
-                                <h1>Prezident</h1>
-                                <p>5 DAYS AGO</p>
-                            </div>
-                            <div class="comment_news_body_text">
-                                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="comment_hr"></div>
-
-                    <div class="comment_news_card">
-                        <div class="comment_news_left">
-                            <div class="img_comment_news">
-                                <img src="../images/img2.png" alt="">
-                            </div>
-
-                        </div>
-                        <div class="comment_news_right">
-                            <div class="comment_news_head_text">
-                                <h1>Prezident</h1>
-                                <p>5 DAYS AGO</p>
-                            </div>
-                            <div class="comment_news_body_text">
-                                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="comment_hr"></div>
-
+                    <h4>{{ count($comments)}} {{ count($comments)>1 ? "Comments" : "Comment" }} </h4>
+                    @foreach ($comments as $comment)
                     <div class="comment_news_card">
                         <div class="comment_news_left">
                             <div class="img_comment_news">
@@ -86,19 +47,26 @@
                         </div>
                         <div class="comment_news_right">
                             <div class="comment_news_head_text">
-                                <h1>Prezident</h1>
-                                <p>5 DAYS AGO</p>
+                                <h1>{{ $comment->name }}</h1>
+                                @php
+                                    $days_ago = date('d') - date('d', strtotime($comment->created_at));
+                                @endphp
+                                <p>{{ $days_ago != 0 ? $days_ago : "" }} {{ ($days_ago)==0 ? "TODAY" : (($days_ago)>1 ? "DAYS AGO" : "DAY AGO") }} </p>
                             </div>
                             <div class="comment_news_body_text">
-                                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean.</p>
+                                <p>{{ $comment->text }}</p>
                             </div>
                         </div>
                     </div>
-
+                    @if (count($comments) > 1)
+                        <div class=comment_hr></div>
+                    @endif
+                    @endforeach
                 </div>
                 <div class="comment_news_form">
                     <h4>Comment qoldirish</h4>
-                    <form action="">
+                    <form action="{{ route('comment.store', ['id' => $article->id]) }}" method="POST">
+                        @csrf
                         <div class="input_form">
                             <label for="name">Ismingiz</label>
                             <input type="text" name="name" required>
@@ -106,6 +74,9 @@
                         <div class="input_form">
                             <label for="email">Emailingiz</label>
                             <input type="email" name="email" required>
+                        </div>
+                        <div class="input_form">
+                            <input type="text" name="type" value="articles" hidden>
                         </div>
                         <div class="input_form">
                             <label for="text" >Sizning commentingiz</label>
@@ -123,70 +94,70 @@
             <x-articlesidebar/>
             {{--<div class="news_body_related">
                 <!-- Songi yangiliklar uchun -->
-                <div class="second-content-head flex items-center justify-between">
+                <div class="flex items-center justify-between second-content-head">
                     <h1 class="">So’nggi yangiliklar</h1>
                     <a href="#">Barchasi</a>
                 </div>
                 <div class="line-gradient"></div>
 
-                <div class="second-content-body flex">
+                <div class="flex second-content-body">
                     <div class="img-content">
                         <img src="../images/img1.png" alt="">
                     </div>
                     <div class="text-content-second">
-                        <div class="icon-text flex items-center justify-between align-middle">
-                            <p class="bell flex items-center align-middle"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
-                            <div class="date-icons flex items-center">
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
+                        <div class="flex items-center justify-between align-middle icon-text">
+                            <p class="flex items-center align-middle bell"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
+                            <div class="flex items-center date-icons">
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
                             </div>
                         </div>
                         <a class="" href="">3 bosqichli sinov, talabalar uchun alohida narxlar – Aston universiteti magistranti bilan suhbat</a>
                     </div>
                 </div>
                 <div class="line-hr"></div>
-                <div class="second-content-body flex">
+                <div class="flex second-content-body">
                     <div class="img-content">
                         <img src="../images/img1.png" alt="">
                     </div>
                     <div class="text-content-second">
-                        <div class="icon-text flex items-center justify-between align-middle">
-                            <p class="bell flex items-center align-middle"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
-                            <div class="date-icons flex items-center">
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
+                        <div class="flex items-center justify-between align-middle icon-text">
+                            <p class="flex items-center align-middle bell"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
+                            <div class="flex items-center date-icons">
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
                             </div>
                         </div>
                         <a class="" href="">3 bosqichli sinov, talabalar uchun alohida narxlar – Aston universiteti magistranti bilan suhbat</a>
                     </div>
                 </div>
                 <div class="line-hr"></div>
-                <div class="second-content-body flex">
+                <div class="flex second-content-body">
                     <div class="img-content">
                         <img src="../images/img1.png" alt="">
                     </div>
                     <div class="text-content-second">
-                        <div class="icon-text flex items-center justify-between align-middle">
-                            <p class="bell flex items-center align-middle"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
-                            <div class="date-icons flex items-center">
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
+                        <div class="flex items-center justify-between align-middle icon-text">
+                            <p class="flex items-center align-middle bell"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
+                            <div class="flex items-center date-icons">
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
                             </div>
                         </div>
                         <a class="" href="">3 bosqichli sinov, talabalar uchun alohida narxlar – Aston universiteti magistranti bilan suhbat</a>
                     </div>
                 </div>
                 <div class="line-hr"></div>
-                <div class="second-content-body flex">
+                <div class="flex second-content-body">
                     <div class="img-content">
                         <img src="../images/img1.png" alt="">
                     </div>
                     <div class="text-content-second">
-                        <div class="icon-text flex items-center justify-between align-middle">
-                            <p class="bell flex items-center align-middle"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
-                            <div class="date-icons flex items-center">
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
+                        <div class="flex items-center justify-between align-middle icon-text">
+                            <p class="flex items-center align-middle bell"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
+                            <div class="flex items-center date-icons">
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
                             </div>
                         </div>
                         <a class="" href="">3 bosqichli sinov, talabalar uchun alohida narxlar – Aston universiteti magistranti bilan suhbat</a>
@@ -195,69 +166,69 @@
 
 
                 <!-- ushbu yangilklarga tegishlilari -->
-                <div class="second-content-head flex items-center justify-between" style="margin-top: 3rem;">
+                <div class="flex items-center justify-between second-content-head" style="margin-top: 3rem;">
                     <h1 class="">Related to this post</h1>
                 </div>
                 <div class="line-gradient"></div>
 
-                <div class="second-content-body flex">
+                <div class="flex second-content-body">
                     <div class="img-content">
                         <img src="../images/img1.png" alt="">
                     </div>
                     <div class="text-content-second">
-                        <div class="icon-text flex items-center justify-between align-middle">
-                            <p class="bell flex items-center align-middle"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
-                            <div class="date-icons flex items-center">
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
+                        <div class="flex items-center justify-between align-middle icon-text">
+                            <p class="flex items-center align-middle bell"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
+                            <div class="flex items-center date-icons">
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
                             </div>
                         </div>
                         <a class="" href="">3 bosqichli sinov, talabalar uchun alohida narxlar – Aston universiteti magistranti bilan suhbat</a>
                     </div>
                 </div>
                 <div class="line-hr"></div>
-                <div class="second-content-body flex">
+                <div class="flex second-content-body">
                     <div class="img-content">
                         <img src="../images/img1.png" alt="">
                     </div>
                     <div class="text-content-second">
-                        <div class="icon-text flex items-center justify-between align-middle">
-                            <p class="bell flex items-center align-middle"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
-                            <div class="date-icons flex items-center">
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
+                        <div class="flex items-center justify-between align-middle icon-text">
+                            <p class="flex items-center align-middle bell"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
+                            <div class="flex items-center date-icons">
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
                             </div>
                         </div>
                         <a class="" href="">3 bosqichli sinov, talabalar uchun alohida narxlar – Aston universiteti magistranti bilan suhbat</a>
                     </div>
                 </div>
                 <div class="line-hr"></div>
-                <div class="second-content-body flex">
+                <div class="flex second-content-body">
                     <div class="img-content">
                         <img src="../images/img1.png" alt="">
                     </div>
                     <div class="text-content-second">
-                        <div class="icon-text flex items-center justify-between align-middle">
-                            <p class="bell flex items-center align-middle"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
-                            <div class="date-icons flex items-center">
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
+                        <div class="flex items-center justify-between align-middle icon-text">
+                            <p class="flex items-center align-middle bell"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
+                            <div class="flex items-center date-icons">
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
                             </div>
                         </div>
                         <a class="" href="">3 bosqichli sinov, talabalar uchun alohida narxlar – Aston universiteti magistranti bilan suhbat</a>
                     </div>
                 </div>
                 <div class="line-hr"></div>
-                <div class="second-content-body flex">
+                <div class="flex second-content-body">
                     <div class="img-content">
                         <img src="../images/img1.png" alt="">
                     </div>
                     <div class="text-content-second">
-                        <div class="icon-text flex items-center justify-between align-middle">
-                            <p class="bell flex items-center align-middle"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
-                            <div class="date-icons flex items-center">
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
-                                <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
+                        <div class="flex items-center justify-between align-middle icon-text">
+                            <p class="flex items-center align-middle bell"><span class="iconify" data-icon="ic:sharp-radio-button-checked" data-inline="false"></span>siyosat</p>
+                            <div class="flex items-center date-icons">
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> 17.07.2021</span>
+                                <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
                             </div>
                         </div>
                         <a class="" href="">3 bosqichli sinov, talabalar uchun alohida narxlar – Aston universiteti magistranti bilan suhbat</a>

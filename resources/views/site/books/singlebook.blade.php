@@ -3,7 +3,7 @@
 <link type="text/css" rel="stylesheet" href="{{ asset('css/lightgallery.css')}}" />
 @section('content')
     <div class="books_category" style="background: #EFFFF5;">
-        <div class="splide mediateka_splide container mx-auto flex justify-between">
+        <div class="container flex justify-between mx-auto splide mediateka_splide">
             <div class="splide__track" style="order: 1;">
                 <ul class="splide__list">
                     <li class="splide__slide "><a href="{{ route('libary') }}" class="button active">Barchasi</a></li>
@@ -30,7 +30,7 @@
             @endforeach
             {{--<img src="../images/books1.png" alt="">--}}
         </div>
-        <div class="all_books all_books_single_rows container mx-auto relative">
+        <div class="container relative mx-auto all_books all_books_single_rows">
             <div class="single_book_first">
                 <!-- Card boshlanishi sikl uchun -->
                 <div class="all_books_card">
@@ -45,7 +45,7 @@
                         </div>
                         <div class="all_books_back-line"></div>
                         <div class="bookmark_all_books">
-                            <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                         </div>
                     </div>
                     <div class="all_books_star">
@@ -79,7 +79,7 @@
         </div>
     </section>
 
-    <section class="all_books container mx-auto">
+    <section class="container mx-auto all_books">
         <div class="single_books_rows">
 
             <div class="single_book_second">
@@ -99,7 +99,7 @@
 
                 </div>
 
-                <div class="second-content-head flex items-center gap-2">
+                <div class="flex items-center gap-2 second-content-head">
                     <span class="iconify" data-icon="akar-icons:info" data-inline="false"></span>
                     <h1 class="">Kitob haqida</h1>
                 </div>
@@ -112,7 +112,8 @@
                 <div class="line_gradient_single_book"></div>
 
                 <div class="comment_news comment_single_book">
-                    <h4>3 Comments</h4>
+                    <h4>{{ count($comments)}} {{ count($comments)>1 ? "Comments" : "Comment" }} </h4>
+                    @foreach ($comments as $comment)
                     <div class="comment_news_card">
                         <div class="comment_news_left">
                             <div class="img_comment_news">
@@ -122,59 +123,28 @@
                         </div>
                         <div class="comment_news_right">
                             <div class="comment_news_head_text">
-                                <h1>Prezident</h1>
-                                <p>5 DAYS AGO</p>
+                                <h1>{{ $comment->name }}</h1>
+                                @php
+                                    $days_ago = date('d') - date('d', strtotime($comment->created_at));
+                                @endphp
+                                <p>{{ $days_ago != 0 ? $days_ago : "" }} {{ ($days_ago)==0 ? "TODAY" : (($days_ago)>1 ? "DAYS AGO" : "DAY AGO") }} </p>
                             </div>
                             <div class="comment_news_body_text">
-                                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean.</p>
+                                <p>{{ $comment->text }}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="comment_hr"></div>
-
-                    <div class="comment_news_card">
-                        <div class="comment_news_left">
-                            <div class="img_comment_news">
-                                <img src="../images/img2.png" alt="">
-                            </div>
-
-                        </div>
-                        <div class="comment_news_right">
-                            <div class="comment_news_head_text">
-                                <h1>Prezident</h1>
-                                <p>5 DAYS AGO</p>
-                            </div>
-                            <div class="comment_news_body_text">
-                                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="comment_hr"></div>
-
-                    <div class="comment_news_card">
-                        <div class="comment_news_left">
-                            <div class="img_comment_news">
-                                <img src="../images/img2.png" alt="">
-                            </div>
-
-                        </div>
-                        <div class="comment_news_right">
-                            <div class="comment_news_head_text">
-                                <h1>Prezident</h1>
-                                <p>5 DAYS AGO</p>
-                            </div>
-                            <div class="comment_news_body_text">
-                                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @if (count($comments) > 1)
+                        <div class=comment_hr></div>
+                    @endif
+                @endforeach
 
                 </div>
                 <div class="comment_news_form" id="comment">
                     <h4>Comment qoldirish</h4>
-                    <form action="">
+                    <form action="{{ route('comment.store', ['id' => $book->id]) }}" method="POST">
+                        @csrf
                         <div class="single_book_wrap">
                             <div class="single_book_wrap_inline">
                                 <div class="input_form">
@@ -184,6 +154,9 @@
                                 <div class="input_form">
                                     <label for="email">Emailingiz</label>
                                     <input type="email" name="email" required>
+                                </div>
+                                <div class="input_form">
+                                    <input type="text" name="type" value="books" hidden>
                                 </div>
                             </div>
 
@@ -354,8 +327,8 @@
             </div>
         </div>
 
-        <div class="all_books_nazm_box mt-10">
-            <div class="second-content-head flex items-center justify-between">
+        <div class="mt-10 all_books_nazm_box">
+            <div class="flex items-center justify-between second-content-head">
                 <h1 class="">O'xshash kitoblar</h1>
                 <a href="#">Barchasi</a>
             </div>
@@ -370,7 +343,7 @@
                         </div>
                         <div class="all_books_back-line"></div>
                         <div class="bookmark_all_books">
-                            <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                         </div>
                     </div>
                     <div class="all_books_star">
@@ -398,7 +371,7 @@
                         </div>
                         <div class="all_books_back-line"></div>
                         <div class="bookmark_all_books">
-                            <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                         </div>
                     </div>
                     <div class="all_books_star">
@@ -426,7 +399,7 @@
                         </div>
                         <div class="all_books_back-line"></div>
                         <div class="bookmark_all_books">
-                            <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                         </div>
                     </div>
                     <div class="all_books_star">
@@ -454,7 +427,7 @@
                         </div>
                         <div class="all_books_back-line"></div>
                         <div class="bookmark_all_books">
-                            <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                         </div>
                     </div>
                     <div class="all_books_star">
@@ -482,7 +455,7 @@
                         </div>
                         <div class="all_books_back-line"></div>
                         <div class="bookmark_all_books">
-                            <a href="#"><span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
+                            <a href="#"><span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span> </a>
                         </div>
                     </div>
                     <div class="all_books_star">
