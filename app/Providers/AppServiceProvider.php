@@ -90,11 +90,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('teahausecategory', teahausecategory::class);
         Blade::component('documentcategory', documentcategory::class);
         Blade::component('articlesidebar', articlesidebar::class);
-<<<<<<< HEAD
-=======
         Blade::component('teahausesidebar', teahausesidebar::class);
         Blade::component('generationsidebar', generationsidebar::class);
         Blade::component('interviewsidebar', interviewsidebar::class);
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
     }
 }

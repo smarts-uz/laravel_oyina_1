@@ -112,7 +112,6 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 //Login
-<<<<<<< HEAD
 // Route::get('login', function()
 // {
 //     return View::make('site.login.login');
@@ -120,20 +119,16 @@ Route::group(['prefix' => 'admin'], function () {
 
 // Route::get('login', [UserAuthController::class, 'login'])->name('login');
 // Route::get('register', [UserAuthController::class, 'register'])->name('register');
-=======
 Route::get('login', function()
 {
     return View::make('site.login.login');
 });
-
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
 
 Route::get('contact', function()
 {
     return View::make('site.contact.contact');
 });
 
-<<<<<<< HEAD
 Route::get('contact', [VoyagerContactController::class, 'contact'])->name('contact');
 Route::post('contact',[VoyagerContactController::class, 'contactMessage'])->name('contactMessage');
 
@@ -142,8 +137,6 @@ Route::get('/logout', function(){
     abort(404);
 })->name('logout');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-=======
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
 
 Route::get('user', function()
 {
