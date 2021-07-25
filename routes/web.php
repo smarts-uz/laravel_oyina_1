@@ -7,6 +7,7 @@ use App\Models\Admin\Category;
 use App\Models\Admin\Document;
 use App\Models\Admin\Article;
 use App\Http\Controllers\Admin\MainPageController;
+use App\Http\Controllers\Admin\UserAuthController;
 use App\Http\Controllers\Admin\VoyagerContactController;
 use App\Http\Controllers\ReviewsController;
 
@@ -117,10 +118,9 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 //Login
-// Route::get('login', function()
-// {
-//     return View::make('site.login.login');
-// })->name('login');
+
+Route::get('login', [UserAuthController::class, 'login'])->name('login');
+Route::get('register', [UserAuthController::class, 'register'])->name('register');
 
 
 Route::get('contact', [VoyagerContactController::class, 'contact'])->name('contact');
