@@ -9,6 +9,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
+        @stack('auth-style')
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
@@ -21,7 +22,7 @@
         <link rel="stylesheet" href="{{ asset('css/news.css') }}">
         {{--<link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/news.css">--}}
-        
+
           <!-- Mediatwk -->
         <link rel="stylesheet" href="{{ asset('css/mediateka.css') }}">
         <link rel="stylesheet" href="{{ asset('css/fancybox.min.css') }}">
@@ -109,7 +110,7 @@
         <x-footer/>
 
         <a href="#headerpage"  class="topbtn " id="myBtn" title="Go to top">
-            <p class="w-full h-full flex items-center justify-center align-center"><svg width="25" height="18" viewBox="0 0 37 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <p class="flex items-center justify-center w-full h-full align-center"><svg width="25" height="18" viewBox="0 0 37 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M32.6525 22L18.5 8.40216L4.3475 22L3.44872e-06 17.8138L18.5 -2.19738e-06L37 17.8138L32.6525 22Z" fill="white"/>
                 </svg>
             </p>
@@ -138,12 +139,12 @@
         <script type="text/javascript" src="{{ asset('js/lg-rotate.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/lg-video.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/fancybox.min.js') }}"></script>
-       
+
         <!-- Mediatek -->
         <script src="http://vjs.zencdn.net/4.12/video.js"></script>
 
-        
-        
+
+
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     <script type="text/javascript" src="{{ asset('js/splide.min.js') }}"></script>

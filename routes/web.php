@@ -114,9 +114,15 @@ Route::group(['prefix' => 'admin'], function () {
 
 //Login
 
-Route::get('login', [UserAuthController::class, 'login'])->name('login');
-Route::get('register', [UserAuthController::class, 'register'])->name('register');
+// Route::get('login', [UserAuthController::class, 'login'])->name('login');
+// Route::get('register', [UserAuthController::class, 'register'])->name('register');
 
 
 Route::get('contact', [VoyagerContactController::class, 'contact'])->name('contact');
 Route::post('contact',[VoyagerContactController::class, 'contactMessage'])->name('contactMessage');
+
+Auth::routes();
+Route::get('/logout', function(){
+    abort(404);
+})->name('logout');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
