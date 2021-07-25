@@ -6,30 +6,31 @@
 
         <div class="contact_row">
             <div class="contact_card_one">
-                <form>
+                <form action="{{ route('contactMessage') }}" method="POST">
+                    @csrf
                     <div class="form_group">
 
-                        <input class="require" type="text" name="" required="" placeholder="Ism Familiya *">
+                        <input class="require" type="text" name="fullname" required="" placeholder="Ism Familiya *">
                     </div>
 
                     <div class="form_group">
-                        <input class="require" type="email" name="" required="" placeholder="Email *">
+                        <input class="require" type="email" name="email" required="" placeholder="Email *">
                     </div>
 
                     <div class="form_group">
-                        <input class="require" type="text" name="" required="" placeholder="Telefon *">
+                        <input class="require" type="text" name="phone" required="" placeholder="Telefon *">
                     </div>
 
                     <div class="form_group">
-                        <input type="text" name="" placeholder="Kompaniya">
+                        <input type="text" name="company" placeholder="Kompaniya">
                     </div>
 
                     <div class="form_group">
-                        <textarea placeholder="Sizning xabaringiz..."></textarea>
+                        <textarea name="message" placeholder="Sizning xabaringiz..."></textarea>
                     </div>
 
                     <div class="contact_button">
-                        <input type="submit" name="" value="Jo'natish">
+                        <input type="submit" value="Jo'natish">
 
                     </div>
                     <span> <span class="iconify" data-icon="ant-design:lock-filled" data-inline="false"></span> Biz sizning ma’lumotingizni havfsiz saqlaymiz</span>

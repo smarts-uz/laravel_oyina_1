@@ -7,6 +7,8 @@ use App\Models\Admin\Category;
 use App\Models\Admin\Document;
 use App\Models\Admin\Article;
 use App\Http\Controllers\Admin\MainPageController;
+use App\Http\Controllers\Admin\VoyagerContactController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -112,13 +114,11 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 //Login
-Route::get('login', function()
-{
-    return View::make('site.login.login');
-});
+// Route::get('login', function()
+// {
+//     return View::make('site.login.login');
+// })->name('login');
 
 
-Route::get('contact', function()
-{
-    return View::make('site.contact.contact');
-});
+Route::get('contact', [VoyagerContactController::class, 'contact'])->name('contact');
+Route::post('contact',[VoyagerContactController::class, 'contactMessage'])->name('contactMessage');
