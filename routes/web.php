@@ -117,10 +117,10 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-//Login
-
+// Authentification
 Route::get('login', [UserAuthController::class, 'login'])->name('login');
 Route::get('register', [UserAuthController::class, 'register'])->name('register');
+Route::post('create', [UserAuthController::class, 'create'])->name('auth.create');
 
 
 Route::get('contact', [VoyagerContactController::class, 'contact'])->name('contact');
