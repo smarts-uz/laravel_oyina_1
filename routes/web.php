@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MainPageController;
+use App\Http\Controllers\Admin\UserAuthController;
+use App\Http\Controllers\Admin\VoyagerContactController;
 use App\Http\Controllers\ReviewsController;
 
 /*
@@ -111,13 +113,10 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 //Login
-Route::get('login', function()
-{
-    return View::make('site.login.login');
-});
+
+Route::get('login', [UserAuthController::class, 'login'])->name('login');
+Route::get('register', [UserAuthController::class, 'register'])->name('register');
 
 
-Route::get('contact', function()
-{
-    return View::make('site.contact.contact');
-});
+Route::get('contact', [VoyagerContactController::class, 'contact'])->name('contact');
+Route::post('contact',[VoyagerContactController::class, 'contactMessage'])->name('contactMessage');

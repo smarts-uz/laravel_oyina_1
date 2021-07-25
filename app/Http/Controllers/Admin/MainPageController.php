@@ -22,6 +22,7 @@ use App\Models\Admin\FunnyCategory;
 use App\Models\Admin\Funny;
 use App\Models\Admin\Audio;
 use App\Models\Admin\DocumentCategory;
+use Exception;
 use App\Models\Comment;
 
 class MainPageController extends Controller
@@ -265,6 +266,8 @@ class MainPageController extends Controller
 
         return view('site.teahause.category-teahause', compact('category', 'articles'));
     }
+
+
 
 }
 
