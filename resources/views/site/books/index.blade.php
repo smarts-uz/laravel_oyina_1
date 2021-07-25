@@ -89,7 +89,7 @@
     }
     #plList{
         overflow-y: auto;
-        height: 550px;
+        max-height: 550px;
     }
     #plList li {
         cursor:pointer;
@@ -114,6 +114,7 @@
         flex-direction: column;
         width: 60%;
         overflow: hidden;
+
     }
 
     .plTitle {
@@ -151,10 +152,10 @@
         font-weight: normal;
         font-size: 18px;
         line-height: 28px;
-
         display: flex;
         justify-content: flex-end;
         width: 40%;
+
         color: #8090AD;
     }
 
@@ -269,7 +270,7 @@
         }
         #plList{
             overflow-y: auto;
-            height: 400px;
+           max-height: 400px;
         }
         #plList li {
             padding:15px 0;
@@ -325,7 +326,7 @@
         }
         #plList{
             overflow-y: auto;
-            height: 600px;
+            max-height: 600px;
         }
         #plList li {
             padding:12px 0;
@@ -383,7 +384,7 @@
         }
         #plList{
             overflow-y: auto;
-            height: 500px;
+            max-height: 500px;
         }
         #plList li {
             padding:12px 0;
@@ -538,7 +539,6 @@
                 // initialize playlist and controls
                 var index = 0,
                     playing = false,
-
                     mediaPath = '',
                     extension = '',
                     tracks = [
