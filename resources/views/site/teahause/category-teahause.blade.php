@@ -28,11 +28,7 @@
                     <div class="category-news-date">
                         <span class="flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> {{ \Carbon\Carbon::parse($item->created_at)->format('H:m / d.m.Y') }}</span>
                     </div>
-<<<<<<< HEAD
-                    <a href="{{ route('article', ['id' => $item->id]) }}">{{ $item->title }}</a>
-=======
                     <a href="{{ route('teahause', ['id' => $item->id]) }}">{{ $item->title }}</a>
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                 </div>
             @endforeach
 

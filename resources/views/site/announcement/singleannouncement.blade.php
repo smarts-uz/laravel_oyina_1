@@ -3,11 +3,7 @@
 <link type="text/css" rel="stylesheet" href="{{ asset('css/lightgallery.css')}}" />
 @section('content')
 
-<<<<<<< HEAD
-    <section class="container mx-auto announcement">
-=======
     <section class="announcement container mx-auto">
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
         <div class="single_announcement">
             <div class="single_announcement_first">
                 <h1 class="head_text_announcement_single">{{ $announcement->title }}</h1>
@@ -15,11 +11,7 @@
                 <div class="single_announcement_line_head"></div>
 
                 <div class="announcement_card_icons">
-<<<<<<< HEAD
-                    <span class="flex items-center bell2"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false">
-=======
                     <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false">
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                         </span> {{ \Carbon\Carbon::parse($announcement->created_at)->format('H:m / d.m.Y') }} </span>
 
                 </div>
@@ -33,11 +25,7 @@
                     @endforeach
 
                     <a href="#" class="announcement_main_bookmark">
-<<<<<<< HEAD
-                        <span class="text-white iconify" data-icon="mdi:bookmark-outline" data-inline="false"></span>
-=======
                         <span class="iconify  text-white" data-icon="mdi:bookmark-outline" data-inline="false"></span>
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                     </a>
                 </div>
 
@@ -47,18 +35,13 @@
 
 
                 <div class="comment_news">
-<<<<<<< HEAD
                     <h4>{{ count($comments)==0 ? "" : count($comments)}} {{ count($comments)>0 ? (count($comments)>1 ? "Comments" : "Comment") : "No Comment" }} </h4>
                     @foreach ($comments as $comment)
-=======
-                    <h4>3 Comments</h4>
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                     <div class="comment_news_card">
                         <div class="comment_news_left">
                             <div class="img_comment_news">
                                 <img src="../images/img2.png" alt="">
                             </div>
-<<<<<<< HEAD
                         </div>
                         <div class="comment_news_right">
                             <div class="comment_news_head_text">
@@ -82,9 +65,6 @@
                     <h4>Comment qoldirish</h4>
                     <form action="{{ route('comment.store', ['id' => $announcement->id]) }}" method="POST">
                         @csrf
-
-=======
-
                         </div>
                         <div class="comment_news_right">
                             <div class="comment_news_head_text">
@@ -141,7 +121,6 @@
                 <div class="comment_news_form">
                     <h4>Comment qoldirish</h4>
                     <form action="">
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                         <div class="input_form">
                             <label for="name">Ismingiz</label>
                             <input type="text" name="name" required>
@@ -151,12 +130,9 @@
                             <input type="email" name="email" required>
                         </div>
                         <div class="input_form">
-<<<<<<< HEAD
                             <input type="text" name="type" value="announcements" hidden>
                         </div>
                         <div class="input_form">
-=======
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                             <label for="text" >Sizning commentingiz</label>
                             <textarea name="text" id="" ></textarea>
                         </div>

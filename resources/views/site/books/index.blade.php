@@ -112,25 +112,16 @@
     .names{
         display: flex;
         flex-direction: column;
-<<<<<<< HEAD
-=======
         width: 60%;
         overflow: hidden;
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
-
     }
 
     .plTitle {
-<<<<<<< HEAD
-        text-overflow:ellipsis;
-        white-space:nowrap;
-=======
         white-space: nowrap;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
         font-family: Roboto;
         font-style: normal;
         font-weight: 500;
@@ -160,13 +151,10 @@
         font-weight: normal;
         font-size: 18px;
         line-height: 28px;
-<<<<<<< HEAD
-=======
+
         display: flex;
         justify-content: flex-end;
         width: 40%;
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
-
         color: #8090AD;
     }
 
@@ -467,11 +455,7 @@
             <div class="books_first_box_content_two">
                 <div class="second-content-head flex items-center justify-between">
                     <h1 class="">Audio kitoblar</h1>
-<<<<<<< HEAD
-                    <a href="#">Barchasi</a>
-=======
                     <a href="{{ route('audiobooks') }}">Barchasi</a>
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                 </div>
                 <div class="line-gradient"></div>
 
@@ -554,47 +538,7 @@
                 // initialize playlist and controls
                 var index = 0,
                     playing = false,
-<<<<<<< HEAD
-                    mediaPath = '../audios/',
-                    extension = '',
-                    tracks = [{
-                        "track": 1,
-                        "name": "Muhabbat",
-                        "tagname": "Abdulla Qahhor",
-                        "date": "12.04.2021",
-                        "file": "a"
-                    }, {
-                        "track": 2,
-                        "name": "O’tmishdan ertaklar",
-                        "tagname": "Abdulla Qahhor",
-                        "date": "12.04.2021",
-                        "file": "1"
-                    },{
-                        "track": 3,
-                        "name": "O’tmishdan ertaklar",
-                        "tagname": "Abdulla Qahhor",
-                        "date": "12.04.2021",
-                        "file": "a"
-                    }, {
-                        "track": 4,
-                        "name": "O’tmishdan ertaklar",
-                        "tagname": "Abdulla Qahhor",
-                        "date": "12.04.2021",
-                        "file": "1"
-                    }, {
-                        "track": 5,
-                        "name": "O’tmishdan ertaklar",
-                        "tagname": "Abdulla Qahhor",
-                        "date": "12.04.2021",
-                        "file": "1"
-                    }, {
-                        "track": 5,
-                        "name": "O’tmishdan ertaklar",
-                        "tagname": "Abdulla Qahhor",
-                        "date": "12.04.2021",
-                        "file": "1"
-                    }],
-=======
+
                     mediaPath = '',
                     extension = '',
                     tracks = [
@@ -611,7 +555,6 @@
                      },
                     @endforeach
                     ],
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                     buildPlaylist = $.each(tracks, function(key, value) {
                         var trackNumber = value.track,
                             trackName = value.name,
@@ -690,11 +633,7 @@
                         npTitle.text(tracks[id].name );
                         npPara.text( tracks[id].tagname);
                         index = id;
-<<<<<<< HEAD
-                        audio.src = mediaPath + tracks[id].file + extension;
-=======
                         audio.src = mediaPath + tracks[id].file;
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
                         updateDownload(id, audio.src);
                     },
                     updateDownload = function (id, source) {
