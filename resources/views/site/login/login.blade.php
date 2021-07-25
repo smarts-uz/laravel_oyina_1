@@ -25,11 +25,7 @@
         input {
             outline: none !important; }
 
-        h1 {
-            text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            font-weight: 700; }
+
 
         section#formHolder {
             padding: 50px 0; }
@@ -101,7 +97,7 @@
             font-size: 12px;
             text-transform: uppercase;
             padding: 8px 30px;
-            background: #f95959;
+            background: #1EB980;
             text-decoration: none;
             color: #fff;
             border-radius: 30px; }
@@ -571,22 +567,22 @@
 
 
         // Form submit
-        $('form.signup-form').submit(function (event) {
-            event.preventDefault();
-
-            if (usernameError == true || emailError == true || passwordError == true || passConfirm == true) {
-                $('.name, .email, .pass, .passConfirm').blur();
-            } else {
-                $('.signup, .login').addClass('switched');
-
-                setTimeout(function () { $('.signup, .login').hide(); }, 700);
-                setTimeout(function () { $('.brand').addClass('active'); }, 300);
-                setTimeout(function () { $('.heading').addClass('active'); }, 600);
-                setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
-                setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
-                setTimeout(function () { $('.form').hide(); }, 700);
-            }
-        });
+        // $('form.signup-form').submit(function (event) {
+        //     event.preventDefault();
+        //
+        //     if (usernameError == true || emailError == true || passwordError == true || passConfirm == true) {
+        //         $('.name, .email, .pass, .passConfirm').blur();
+        //     } else {
+        //         $('.signup, .login').addClass('switched');
+        //
+        //         setTimeout(function () { $('.signup, .login').hide(); }, 700);
+        //         setTimeout(function () { $('.brand').addClass('active'); }, 300);
+        //         setTimeout(function () { $('.heading').addClass('active'); }, 600);
+        //         setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
+        //         setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+        //         setTimeout(function () { $('.form').hide(); }, 700);
+        //     }
+        // });
 
         // Reload page
         $('a.profile').on('click', function () {

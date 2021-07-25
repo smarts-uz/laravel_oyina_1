@@ -33,7 +33,6 @@ class relevance extends Component
             ->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
             ->where('lang', '=', app()->getLocale())
             ->limit(5)->get();
->>>>>>> 719fd9a4cd33e912b1baf23176f06f76229fa9ed
     }
 
     /**
