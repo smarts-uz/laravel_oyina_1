@@ -3,9 +3,11 @@
 namespace App\View\Components\site;
 
 use Illuminate\View\Component;
+use App\Models\Admin\Audiobook as Audio;
 
 class audiobook extends Component
 {
+    public $audiobooks;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,9 @@ class audiobook extends Component
      */
     public function __construct()
     {
-        //
+        $this->audiobooks = Audio::query()
+            ->where('lang', '=', app()->getLocale())
+            ->orderBy('id', 'desc')->limit(10)->get();
     }
 
     /**

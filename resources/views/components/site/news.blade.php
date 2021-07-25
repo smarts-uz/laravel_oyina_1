@@ -1,8 +1,8 @@
 
       <div class="second-content">
         <div class="second-content-head flex items-center justify-between">
-          <h1 class="">So’nggi yangiliklar</h1>
-          <a href="#">Barchasi</a>
+          <h1 class="">@lang('site.content_menus.last_news')</h1>
+          <a href="{{ route('postType', ['id' => 3]) }}">@lang('site.navbar.all')</a>
         </div>
         <div class="line-gradient"></div>
 

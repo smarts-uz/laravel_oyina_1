@@ -19,8 +19,11 @@ class dayhistory extends Component
     public function __construct()
     {
         $history_content = History::query()
+            ->orderBy('id', 'desc')
             ->whereDay('day', '=', date('d'))
-            ->whereMonth('day', '=', date('m'))->first();
+            ->whereMonth('day', '=', date('m'))
+            ->where('lang', '=', app()->getLocale())
+            ->first();
 
         if (!empty($history_content)) {
             $this->history = $history_content->content;
@@ -29,22 +32,67 @@ class dayhistory extends Component
         }
 
         $month_list = [
-            'Yanvar',
-            'Fevral',
-            'Mart',
-            'Aprel',
-            'May',
-            'Iyun',
-            'Iyul',
-            'Avgust',
-            'Sentyabr',
-            'Oktyabr',
-            'Noyabr',
-            'Dekabr',
+            'uz' => [
+                'Yanvar',
+                'Fevral',
+                'Mart',
+                'Aprel',
+                'May',
+                'Iyun',
+                'Iyul',
+                'Avgust',
+                'Sentyabr',
+                'Oktyabr',
+                'Noyabr',
+                'Dekabr',
+            ],
+            'ru' => [
+                'Январь',
+                'Февраль',
+                'Март',
+                'Апрель',
+                'Май',
+                'Июнь',
+                'Июль',
+                'Август',
+                'Сентябрь',
+                'Октябрь',
+                'Ноябрь',
+                'Декабрь',
+            ],
+            'en' => [
+                'Yanvar',
+                'Fevral',
+                'Mart',
+                'Aprel',
+                'May',
+                'Iyun',
+                'July',
+                'Avgust',
+                'Sentyabr',
+                'Oktyabr',
+                'Noyabr',
+                'Dekabr',
+            ],
+            'kiril' => [
+                'Январь',
+                'Февраль',
+                'Март',
+                'Апрель',
+                'Май',
+                'Июнь',
+                'Июль',
+                'Август',
+                'Сентябрь',
+                'Октябрь',
+                'Ноябрь',
+                'Декабрь',
+            ],
+
         ];
 
         $this->day = intval(date('d'));
-        $this->month = $month_list[intval(date('m')) - 1];
+        $this->month = $month_list[app()->getLocale()][intval(date('m')) - 1];
     }
 
     /**

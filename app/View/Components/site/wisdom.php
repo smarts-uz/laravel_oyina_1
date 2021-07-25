@@ -2,18 +2,21 @@
 
 namespace App\View\Components\site;
 
+use App\Models\Admin\Content;
 use Illuminate\View\Component;
 
 class wisdom extends Component
 {
+    public $content;
     /**
      * Create a new component instance.
      *
      * @return void
      */
+
     public function __construct()
     {
-        //
+        $this->content = Content::inRandomOrder()->first();
     }
 
     /**

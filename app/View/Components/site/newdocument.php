@@ -15,7 +15,9 @@ class newdocument extends Component
      */
     public function __construct()
     {
-        $this->documents = Document::query()->orderBy('id', 'desc')->limit(4)->get();
+        $this->documents = Document::query()
+            ->where('lang', '=', app()->getLocale())
+            ->orderBy('id', 'desc')->limit(4)->get();
     }
 
     /**

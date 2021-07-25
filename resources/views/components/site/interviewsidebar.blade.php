@@ -1,0 +1,31 @@
+<div class="second-content">
+    <div class="second-content-head flex items-center justify-between">
+        <h1 class="">So`ngi intervyular</h1>
+        <a href="{{ route('interviews')}}">@lang('site.navbar.all')</a>
+    </div>
+    <div class="line-gradient"></div>
+
+    @foreach($news as $item)
+        <div class="second-content-body flex">
+            <div class="img-content">
+                <img src="{{ Voyager::image(json_decode($item->image)[0]) }}" alt="">
+            </div>
+            <div class="text-content-second">
+                <div class="icon-text flex items-center justify-between align-middle">
+                    <div class="date-icons flex items-center">
+                        <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:clock-time-four-outline" data-inline="false"></span> {{ \Carbon\Carbon::parse($item->created_at)->format('H:m / d.m.Y') }}</span>
+                        <span class="bell2 flex items-center"><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span> 28</span>
+                    </div>
+                </div>
+                <a class="" href="{{ route('interview', ['id' => $item->id]) }}">{{ $item->title }}</a>
+            </div>
+        </div>
+        @if (!$loop->last)
+            <div class="line-hr"></div>
+        @endif
+    @endforeach
+
+
+
+
+</div>

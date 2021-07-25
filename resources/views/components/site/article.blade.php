@@ -1,11 +1,11 @@
 <div class="article-content-one-head-text flex items-center justify-between">
-          <h1 class="">Maqolalar</h1>
-          <a href="#">Barchasi</a>
+          <h1 class="">@lang('site.header.articles')</h1>
+          <a href="{{ route('articles') }}">@lang('site.navbar.all')</a>
         </div>
         <div class="line-gradient-four"></div>
         <div class="article-cards flex">
          @foreach($articles as $article)
-          <a href="" class="cards-item">
+          <a href="{{ route('article', ['id' => $article->id ]) }}" class="cards-item">
             @php  $images = json_decode($article->image); @endphp
             @foreach($images as $image)
                 @if ($loop->first)

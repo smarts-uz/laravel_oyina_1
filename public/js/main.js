@@ -76,6 +76,12 @@ var mediaswiper = new Swiper(".mediaswipe", {
 
 });
 
+new Splide( '#splidefoto', {
+  perPage: 1,
+  arrows: false,
+  pagination: false
+} ).mount();
+
 
 
 // Media filter
@@ -93,7 +99,7 @@ for (var i = 0; i < btns.length; i++) {
 
 
 function filtervidfoto(e) {
-    const videos = document.querySelectorAll(".mediaswipe .swiper-wrapper .swiper-slide"); // select all animal divs
+    const videos = document.querySelectorAll(".media_filter_container .swiper-container"); // select all animal divs
     let filter = e.target.dataset.filter; // grab the value in the event target's data-filter attribute
   
     videos.forEach(vid => {

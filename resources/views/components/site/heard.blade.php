@@ -1,6 +1,6 @@
 <div class="section-two-content-two-head flex items-center justify-between">
-          <h1 class="">Eshitmadim demanglar...</h1>
-          <a href="#">Barchasi</a>
+          <h1 class="">@lang('site.content_menus.not_heard')...</h1>
+          <a href="{{ route('postType', ['id' => 2]) }}">@lang('site.navbar.all')</a>
         </div>
         <div class="line-gradient-three"></div>
         <div class="news-content flex">
@@ -17,7 +17,10 @@
               <span class="flex items-center"><div class="dot-green"></div><span class="iconify" data-icon="mdi:message-text" data-inline="false"></span>
               {{ \Carbon\Carbon::parse($item->created_at)->format('d.m.Y') }}</span>
             </div>
-            <a href="{{ route('singlePost', ['post' => $item->slug]) }}">{{ $item->title }}</a>
+            <div class="news_text_height">
+               <a href="{{ route('singlePost', ['post' => $item->slug]) }}">{{ $item->title }}</a>
+            </div>
+
           </div>
         @endforeach
         </div>

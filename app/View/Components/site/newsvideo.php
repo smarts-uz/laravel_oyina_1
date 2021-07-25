@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 
 class newsvideo extends Component
 {
+    public $videocontent;
     /**
      * Create a new component instance.
      *
@@ -13,7 +14,7 @@ class newsvideo extends Component
      */
     public function __construct()
     {
-        //
+        $this->videocontent = \App\Models\Admin\Newsvideo::query()->orderBy('id', 'desc')->first();
     }
 
     /**

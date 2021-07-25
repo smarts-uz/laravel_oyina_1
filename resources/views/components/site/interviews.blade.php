@@ -1,6 +1,6 @@
 <div class="section-three-first-content-head-text flex items-center justify-between">
-      <h1 class="">Intervyular</h1>
-      <a href="{{ route('interviews') }}">Barchasi</a>
+      <h1 class="">@lang('site.content_menus.interviews')</h1>
+      <a href="{{ route('interviews') }}">@lang('site.navbar.all')</a>
     </div>
     <div class="line-gradient-five"></div>
     <div class="interview-cards flex">

@@ -13,10 +13,11 @@ class news extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($limit)
     {
         $this->news = Post::query()->orderBy('id', 'desc')
-            ->limit(4)->get();
+            ->where('lang', '=', app()->getLocale())
+            ->limit($limit)->get();
     }
 
     /**

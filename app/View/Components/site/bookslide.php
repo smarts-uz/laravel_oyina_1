@@ -3,9 +3,11 @@
 namespace App\View\Components\site;
 
 use Illuminate\View\Component;
+use App\Models\Admin\Publication;
 
 class bookslide extends Component
 {
+    public $publications;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,10 @@ class bookslide extends Component
      */
     public function __construct()
     {
-        //
+        $this->publications = Publication::query()
+            ->orderBy('created_at', 'desc')
+            ->where('lang', '=', app()->getLocale())
+            ->limit(10)->get();
     }
 
     /**
